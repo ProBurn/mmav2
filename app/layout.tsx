@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from "next/script";
+import LocomotiveScrollWrapper from "@/components/LocomotiveScrollWrapper";
+import Navbar from "@/components/ui/navbar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            strategy="beforeInteractive" // You can also use "afterInteractive" if you prefer
+          />
+          <LocomotiveScrollWrapper />
+          <Navbar />
         {children}
       </body>
     </html>
