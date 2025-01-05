@@ -160,7 +160,7 @@ function CallToAction() {
   return (
     <div>
       <p className="max-w-lg text-pretty text-md font-medium text-gray-500 ">
-        Discover a wide range of music lessons tailored to suit all skill levels and interests. Whether you're a beginner or an advanced musician, we have something for everyone.
+        Discover a wide range of music lessons tailored to suit all skill levels and interests. Whether you&apos;re a beginner or an advanced musician, we have something for everyone.
       </p>
       <div className="mt-2">
         <Link
