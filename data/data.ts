@@ -10,7 +10,7 @@ export const lessons = [
       'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
   },
   {
-    img: '/content/Bass (2).jpg',
+    img: '/content/bass (2).jpg',
     href:'/lessons/bass-lesson',
     name: 'Bass Lesson',
     title: 'Learn more ->',
