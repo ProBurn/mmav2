@@ -45,7 +45,10 @@ export default function Hero2() {
           <div className="text-center">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
               Thinking of learning {' '}
+              </h1>
+              <h1 className='text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl block sm:inline'>
               <Typewriter
+              
                 words={words}
                 loop={Infinity}
                 cursor
