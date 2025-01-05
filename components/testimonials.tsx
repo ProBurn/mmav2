@@ -159,16 +159,15 @@ function TestimonialCard({
 function CallToAction() {
   return (
     <div>
-      <p className="max-w-sm text-sm/6 text-gray-600">
-        Join the best sellers in the business and start using Radiant to hit
-        your targets today.
+      <p className="max-w-lg text-pretty text-md font-medium text-gray-500 ">
+        Discover a wide range of music lessons tailored to suit all skill levels and interests. Whether you're a beginner or an advanced musician, we have something for everyone.
       </p>
       <div className="mt-2">
         <Link
-          href="#"
-          className="inline-flex items-center gap-2 text-sm/6 font-medium text-pink-600"
+          href="/lessons"
+          className="inline-flex items-center gap-2  text-sm/6 font-semibold text-gray-900"
         >
-          Get started
+          View all lessons
           <ArrowLongRightIcon className="size-5" />
         </Link>
       </div>

@@ -34,7 +34,7 @@ const testimonials2 = () => {
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-base/7 font-semibold text-indigo-600">Testimonials</h2>
                     <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-                        I have worked with many amazing people
+                        What our students are saying about us
                     </p>
                 </div>
                 <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 grid-rows-1 gap-8 text-sm/6 text-gray-900 sm:mt-20 sm:grid-cols-2 xl:mx-0 xl:max-w-none xl:grid-flow-col xl:grid-cols-4">
