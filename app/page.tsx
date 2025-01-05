@@ -4,7 +4,7 @@ import { Testimonials } from "@/components/testimonials";
 import Testimonials2 from "@/components/testimonials2";
 import ContactSection from "@/components/ui/contact-small";
 // import Image from "next/image";
-import { Typewriter } from 'react-simple-typewriter'
+// import { Typewriter } from 'react-simple-typewriter'
 
 export default function Home() {
 
@@ -42,7 +42,7 @@ const words = [
       </div>
     </div> */}
 
-    <div className="bg-gray-50">
+    {/* <div className="bg-gray-50">
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
@@ -72,7 +72,7 @@ const words = [
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
 
       <Testimonials />
       <Testimonials2 />
