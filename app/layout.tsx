@@ -4,6 +4,8 @@ import "./globals.css";
 import Script from "next/script";
 import LocomotiveScrollWrapper from "@/components/LocomotiveScrollWrapper";
 import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
+import Footer2 from "@/components/ui/footer2";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +40,8 @@ export default function RootLayout({
           <LocomotiveScrollWrapper />
           <Navbar />
         {children}
+        {/* <Footer /> */}
+        <Footer2 />
       </body>
     </html>
   );

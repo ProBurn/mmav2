@@ -109,7 +109,7 @@ const Navbar = () => {
     return (
         <div
         >
-            <nav className="bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg fixed w-full" id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}>
+            <nav className="bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg relative w-full" id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}>
                 <div className="container mx-auto flex justify-between items-center">
 
 

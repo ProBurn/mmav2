@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Faq from '@/components/ui/faq'
+import { team } from '@/data/data'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -72,45 +73,45 @@ const values = [
       'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius. Possimus reprehenderit iste aspernatur ut est velit consequatur distinctio.',
   },
 ]
-const team = [
-  {
-    name: 'Christopher James Meek',
-    role: 'Co-Founder / CTO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-  },
-  {
-    name: 'Mhristopher Cames Jeek',
-    role: 'Co-Founder / CTO',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-  },
-  {
-    name: 'Jimmy Carr',
-    role: 'Funny guy',
-    imageUrl:
-'https://i.guim.co.uk/img/media/e4ae055cd7e0b946e216e2a43a97fcf085c364e6/463_41_2032_1219/master/2032.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6a19aa0e164cc51f2a2770b8bff5776d',
-  },
-  {
-    name: 'Dan',
-    role: 'Drum Teacher',
-    imageUrl:
-'https://s.abcnews.com/images/GMA/240530_gma_digital_samuelljackson_hpMain_4x5_608.jpg',
-  },
-  {
-    name: 'Jono',
-    role: 'Guitar Teacher',
-    imageUrl:
-'https://d3i6fh83elv35t.cloudfront.net/static/2024/03/2017-05-02T120000Z_842525135_HP1ED52032BRW_RTRMADP_3_FASHION-METGALA-1024x677.jpg',
-  },
-  {
-    name: 'Your mam',
-    role: 'sexy',
-    imageUrl:
-'https://i0.wp.com/tremg.info/wp-content/uploads/2020/08/paul-blart.jpg?resize=1200%2C1200&ssl=1&w=640',
-  },
-  // More people...
-]
+// const team = [
+//   {
+//     name: 'Christopher James Meek',
+//     role: 'Co-Founder / CTO',
+//     imageUrl:
+//       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+//   },
+//   {
+//     name: 'Mhristopher Cames Jeek',
+//     role: 'Co-Founder / CTO',
+//     imageUrl:
+//       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+//   },
+//   {
+//     name: 'Jimmy Carr',
+//     role: 'Funny guy',
+//     imageUrl:
+// 'https://i.guim.co.uk/img/media/e4ae055cd7e0b946e216e2a43a97fcf085c364e6/463_41_2032_1219/master/2032.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6a19aa0e164cc51f2a2770b8bff5776d',
+//   },
+//   {
+//     name: 'Dan',
+//     role: 'Drum Teacher',
+//     imageUrl:
+// 'https://s.abcnews.com/images/GMA/240530_gma_digital_samuelljackson_hpMain_4x5_608.jpg',
+//   },
+//   {
+//     name: 'Jono',
+//     role: 'Guitar Teacher',
+//     imageUrl:
+// 'https://d3i6fh83elv35t.cloudfront.net/static/2024/03/2017-05-02T120000Z_842525135_HP1ED52032BRW_RTRMADP_3_FASHION-METGALA-1024x677.jpg',
+//   },
+//   {
+//     name: 'Your mam',
+//     role: 'sexy',
+//     imageUrl:
+// 'https://i0.wp.com/tremg.info/wp-content/uploads/2020/08/paul-blart.jpg?resize=1200%2C1200&ssl=1&w=640',
+//   },
+//   // More people...
+// ]
 const blogPosts = [
   {
     id: 1,
@@ -591,7 +592,7 @@ export default function Example() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-16 sm:mt-32">
+      {/* <footer className="mt-16 sm:mt-32">
         <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
           <nav aria-label="Footer" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
             {footerNavigation.main.map((item) => (
@@ -612,7 +613,7 @@ export default function Example() {
             &copy; 2024 Your Company, Inc. All rights reserved.
           </p>
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

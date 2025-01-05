@@ -196,9 +196,10 @@ export function Testimonials() {
     <div className="overflow-hidden py-32 bg-white">
       <Container>
         <div ref={setReferenceWindowRef}>
-          <Subheading>What everyone is saying</Subheading>
+          {/* <Subheading>We offer a wide variety of</Subheading> */}
+          <p className='text-lg/8 text-gray-600'>We offer a wide variety of music lessons</p>
           <Heading as="h3" className="mt-2">
-            Trusted by professionals.
+            What&apos;s on offer
           </Heading>
         </div>
       </Container>
@@ -211,7 +212,8 @@ export function Testimonials() {
           '[--scroll-padding:max(theme(spacing.6),calc((100vw-theme(maxWidth.2xl))/2))] lg:[--scroll-padding:max(theme(spacing.8),calc((100vw-theme(maxWidth.7xl))/2))]',
         ])}
       >
-        {lessons.map(({ img, name, title, quote }, testimonialIndex) => (
+        {lessons.map(({ img, name, title, quote, href }, testimonialIndex) => (
+          <Link href={href}>
           <TestimonialCard
             key={testimonialIndex}
             name={name}
@@ -220,9 +222,10 @@ export function Testimonials() {
             bounds={bounds}
             scrollX={scrollX}
             onClick={() => scrollTo(testimonialIndex)}
-          >
+            >
             {/* {quote} */}
           </TestimonialCard>
+            </Link>
         ))}
         <div className="w-[42rem] shrink-0 sm:w-[54rem]" />
       </div>

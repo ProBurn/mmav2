@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment, use, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import {
     Dialog,
     DialogBackdrop,
@@ -27,7 +27,6 @@ import {
 import { CheckIcon, QuestionMarkCircleIcon, StarIcon, CloudArrowUpIcon, LockClosedIcon, ServerIcon, MusicalNoteIcon } from '@heroicons/react/20/solid'
 import { team, lessonPages } from '@/data/data'
 import { AnimatePresence, motion } from 'framer-motion'
-import { notFound } from 'next/navigation'
 
 
 
@@ -387,24 +386,12 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
-
-
-    const params = use(paramsPromise);
-
-    // Access params.slug safely
-    const slug = params.slug;
-    // const product = products.find(product => product.slug === slug);
+export default function Example() {
     const [open, setOpen] = useState(false)
-    // const slug = 'drum-lesson'
+    const slug = 'drum-lesson'
 
+    const teamMembers = team.filter((member) => member.teaches?.includes('drums'))
     const product = lessonPages.find(product => product.slug === slug);
-
-    if (!product) {
-        return (
-            notFound())
-    }
-    const teamMembers = team.filter((member) => member.teaches?.includes(product.teaches))
     const [selectedDuration, setSelectedDuration] = useState(product ? product.variants[0] : null)
     const [price, setPrice] = useState(product ? product.variants[0].price : null)
 
@@ -737,17 +724,17 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                 </h2>
 
                                 <div className="flex items-center">
-                                    {/* <AnimatePresence mode='wait'> */}
-                                    <motion.p
-                                        key={price}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0, transition: { type: 'spring', ease: 'easeInOut' } }}
-                                        exit={{ opacity: 0, y: -20, transition: { type: 'spring', ease: 'easeInOut' } }}
-                                        className="text-lg text-gray-900 sm:text-xl">
+                                {/* <AnimatePresence mode='wait'> */}
+                                        <motion.p
+                                            key={price}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0, transition: { type: 'spring', ease: 'easeInOut' } }}
+                                            exit={{ opacity: 0, y: -20, transition: { type: 'spring', ease: 'easeInOut' } }}
+                                            className="text-lg text-gray-900 sm:text-xl">
 
-                                        {price}
-                                    </motion.p>
-                                    {/* </AnimatePresence> */}
+                                    {price}
+                                            </motion.p>
+                                            {/* </AnimatePresence> */}
 
                                     {/* <div className="ml-4 border-l border-gray-300 pl-4">
                                         <h2 className="sr-only">Reviews</h2>
@@ -967,10 +954,10 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                 What we offer for your {' '} {product.name}
                             </h1>
                             <p className="mt-6 text-xl/8 text-gray-700">
-
-                                Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve
-                                your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations,
-                                helping you become the drummer you've always wanted to be.
+                            
+                                    Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve 
+                                    your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, 
+                                    helping you become the drummer you've always wanted to be.
                             </p>
                         </div>
                         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12">
@@ -1013,29 +1000,29 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                 </figure>
                             </div>
                             <div className="max-w-xl text-base/7 text-gray-700 lg:col-span-7">
-                                {product.sections.map((section, sectionIndex) => (
-                                    <div key={`section${sectionIndex}`}>
-                                        <h2 className={`${sectionIndex === 0 ? "" : "mt-16"} text-2xl font-bold tracking-tight text-gray-900`}>{section.heading}</h2>
-                                        <p className='mt-6'>
-                                            {section.description}
-                                        </p>
-                                        <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
-                                            {section && section.content.map((item, itemIndex) => (
+                            {product.sections.map((section, sectionIndex) => (
+                                <div key={`section${sectionIndex}`}>
+                                 <h2 className={`${sectionIndex === 0 ? "" : "mt-16"} text-2xl font-bold tracking-tight text-gray-900`}>{section.heading}</h2>
+                                <p className='mt-6'>
+                                    {section.description}
+                                </p>
+                                <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
+                                    {section && section.content.map((item, itemIndex) => (
+                                    
+                                        
+                                    <li className="flex gap-x-3" key={`section${sectionIndex}-item${itemIndex}`}>
+                                        <MusicalNoteIcon aria-hidden="true" className="mt-1 size-5 flex-none text-indigo-600" />
+                                        <span>
+                                            <strong className="font-semibold text-gray-900">{item.label}</strong>
+                                            {' '}{item.text}
+                                        </span>
+                                    </li>
+                                    
+                                    ))}
+                                    </ul>
+                                </div>
 
-
-                                                <li className="flex gap-x-3" key={`section${sectionIndex}-item${itemIndex}`}>
-                                                    <MusicalNoteIcon aria-hidden="true" className="mt-1 size-5 flex-none text-indigo-600" />
-                                                    <span>
-                                                        <strong className="font-semibold text-gray-900">{item.label}</strong>
-                                                        {' '}{item.text}
-                                                    </span>
-                                                </li>
-
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                ))}
+                            ))}
 
                             </div>
                         </div>
@@ -1104,7 +1091,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                         </div>
                     </section>
                 </div> */}
-
+ 
                 {/* <section aria-labelledby="reviews-heading" className="bg-white">
                     <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-32">
                         <div className="lg:col-span-4">
@@ -1225,7 +1212,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                 </section> */}
             </main>
 
-
+            
         </div>
     )
 }
