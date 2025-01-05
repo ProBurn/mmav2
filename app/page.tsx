@@ -8,14 +8,14 @@ import ContactSection from "@/components/ui/contact-small";
 
 export default function Home() {
 
-const words = [
-    "Drums?",
-    "Piano?",
-    "Guitar?",
-    "Ukulele?",
-    "Singing?",
-    "Bass?",
-]
+// const words = [
+//     "Drums?",
+//     "Piano?",
+//     "Guitar?",
+//     "Ukulele?",
+//     "Singing?",
+//     "Bass?",
+// ]
   return (
     <div>
       <Hero2 />
