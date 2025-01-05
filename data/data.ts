@@ -526,7 +526,7 @@ export const team: {
       'Tailored lesson plans',
       'Flexible learning pace',
     ],
-    imageSrc: '/content/bass.jpg',
+    imageSrc: '/content/Bass.jpg',
     imageAlt: 'Bass lesson image',
     breadcrumbs: [
       { id: 1, name: 'Lessons', href: '#' },
