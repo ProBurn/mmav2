@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import ConditionalLink from '@/components/conditionalLink';
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 // import { Button } from '@/components/ui/moving-border';
 // import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 
 
 const Navbar = () => {
-    const router = useRouter();
+    // const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -128,7 +128,7 @@ const Navbar = () => {
                         {/* <a href="#" className="text-gray-300 hover:text-white">Home</a> */}
                         {/* <a href="#" className="text-gray-300 hover:text-white">About</a> */}
                         <div className="flex items-center space-x-10">
-                            {menuItems.map((item, index) => (
+                            {menuItems.map((item) => (
 
                                 <FlyoutLink
                                     href={item.href}

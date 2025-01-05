@@ -15,57 +15,57 @@ import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import useMeasure, { type RectReadOnly } from 'react-use-measure'
 import { Container } from './container'
 import { Link } from './link'
-import { Heading, Subheading } from './text'
+import { Heading } from './text'
 import { lessons } from '@/data/data'
-import { RippleText, RippleText2 } from '@/components/ripple'
 
-const testimonials = [
-  {
-    img: '/testimonials/tina-yards.jpg',
-    name: 'Tina Yards',
-    title: 'VP of Sales, Protocol',
-    quote:
-      'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
-  },
-  {
-    img: '/testimonials/conor-neville.jpg',
-    name: 'Conor Neville',
-    title: 'Head of Customer Success, TaxPal',
-    quote:
-      'Radiant made undercutting all of our competitors an absolute breeze.',
-  },
-  {
-    img: '/testimonials/amy-chase.jpg',
-    name: 'Amy Chase',
-    title: 'Head of GTM, Pocket',
-    quote:
-      'We closed a deal in literally a few minutes because we knew their exact budget.',
-  },
-  {
-    img: '/testimonials/veronica-winton.jpg',
-    name: 'Veronica Winton',
-    title: 'CSO, Planeteria',
-    quote:
-      'We’ve managed to put two of our main competitors out of business in 6 months.',
-  },
-  {
-    img: '/testimonials/dillon-lenora.jpg',
-    name: 'Dillon Lenora',
-    title: 'VP of Sales, Detax',
-    quote: 'I was able to replace 80% of my team with RadiantAI bots.',
-  },
-  {
-    img: '/testimonials/harriet-arron.jpg',
-    name: 'Harriet Arron',
-    title: 'Account Manager, Commit',
-    quote:
-      'I’ve smashed all my targets without having to speak to a lead in months.',
-  },
-]
+
+// const testimonials = [
+//   {
+//     img: '/testimonials/tina-yards.jpg',
+//     name: 'Tina Yards',
+//     title: 'VP of Sales, Protocol',
+//     quote:
+//       'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
+//   },
+//   {
+//     img: '/testimonials/conor-neville.jpg',
+//     name: 'Conor Neville',
+//     title: 'Head of Customer Success, TaxPal',
+//     quote:
+//       'Radiant made undercutting all of our competitors an absolute breeze.',
+//   },
+//   {
+//     img: '/testimonials/amy-chase.jpg',
+//     name: 'Amy Chase',
+//     title: 'Head of GTM, Pocket',
+//     quote:
+//       'We closed a deal in literally a few minutes because we knew their exact budget.',
+//   },
+//   {
+//     img: '/testimonials/veronica-winton.jpg',
+//     name: 'Veronica Winton',
+//     title: 'CSO, Planeteria',
+//     quote:
+//       'We’ve managed to put two of our main competitors out of business in 6 months.',
+//   },
+//   {
+//     img: '/testimonials/dillon-lenora.jpg',
+//     name: 'Dillon Lenora',
+//     title: 'VP of Sales, Detax',
+//     quote: 'I was able to replace 80% of my team with RadiantAI bots.',
+//   },
+//   {
+//     img: '/testimonials/harriet-arron.jpg',
+//     name: 'Harriet Arron',
+//     title: 'Account Manager, Commit',
+//     quote:
+//       'I’ve smashed all my targets without having to speak to a lead in months.',
+//   },
+// ]
 
 function TestimonialCard({
   name,
-  title,
+  // title,
   img,
   children,
   bounds,
@@ -74,33 +74,33 @@ function TestimonialCard({
 }: {
   img: string
   name: string
-  title: string
+  // title: string
   children?: React.ReactNode
   bounds: RectReadOnly
   scrollX: MotionValue<number>
 } & HTMLMotionProps<'div'>) {
-  let ref = useRef<HTMLDivElement | null>(null)
+  const ref = useRef<HTMLDivElement | null>(null)
 
-  let computeOpacity = useCallback(() => {
-    let element = ref.current
+  const computeOpacity = useCallback(() => {
+    const element = ref.current
     if (!element || bounds.width === 0) return 1
 
-    let rect = element.getBoundingClientRect()
+    const rect = element.getBoundingClientRect()
 
     if (rect.left < bounds.left) {
-      let diff = bounds.left - rect.left
-      let percent = diff / rect.width
+      const diff = bounds.left - rect.left
+      const percent = diff / rect.width
       return Math.max(0.5, 1 - percent)
     } else if (rect.right > bounds.right) {
-      let diff = rect.right - bounds.right
-      let percent = diff / rect.width
+      const diff = rect.right - bounds.right
+      const percent = diff / rect.width
       return Math.max(0.5, 1 - percent)
     } else {
       return 1
     }
   }, [ref, bounds.width, bounds.left, bounds.right])
 
-  let opacity = useSpring(computeOpacity(), {
+  const opacity = useSpring(computeOpacity(), {
     stiffness: 154,
     damping: 23,
   })
@@ -177,18 +177,18 @@ function CallToAction() {
 }
 
 export function Testimonials() {
-  let scrollRef = useRef<HTMLDivElement | null>(null)
-  let { scrollX } = useScroll({ container: scrollRef })
-  let [setReferenceWindowRef, bounds] = useMeasure()
-  let [activeIndex, setActiveIndex] = useState(0)
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+  const { scrollX } = useScroll({ container: scrollRef })
+  const [setReferenceWindowRef, bounds] = useMeasure()
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useMotionValueEvent(scrollX, 'change', (x) => {
     setActiveIndex(Math.floor(x / scrollRef.current!.children[0].clientWidth))
   })
 
   function scrollTo(index: number) {
-    let gap = 32
-    let width = (scrollRef.current!.children[0] as HTMLElement).offsetWidth
+    const gap = 32
+    const width = (scrollRef.current!.children[0] as HTMLElement).offsetWidth
     scrollRef.current!.scrollTo({ left: (width + gap) * index })
   }
 
@@ -212,10 +212,10 @@ export function Testimonials() {
           '[--scroll-padding:max(theme(spacing.6),calc((100vw-theme(maxWidth.2xl))/2))] lg:[--scroll-padding:max(theme(spacing.8),calc((100vw-theme(maxWidth.7xl))/2))]',
         ])}
       >
-        {lessons.map(({ img, name, title, quote, href }, testimonialIndex) => (
-          <Link href={href}>
+        {lessons.map(({ img, name, title, href }, testimonialIndex) => (
+          <Link href={href} key={testimonialIndex}>
           <TestimonialCard
-            key={testimonialIndex}
+            
             name={name}
             title={title}
             img={img}

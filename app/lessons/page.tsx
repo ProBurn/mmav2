@@ -1,6 +1,5 @@
 import React from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
 import FaqSection  from '@/components/ui/faq'
 
 interface Faq {
@@ -239,7 +238,7 @@ const page = () => {
                 <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900">Lessons that we offer!</h2>
                     <p className="mt-4 text-base text-gray-500">
-                            Explore our range of music lessons, each tailored to help you achieve your goals. Whether you're a beginner or an advanced musician, we have something for everyone.
+                            Explore our range of music lessons, each tailored to help you achieve your goals. Whether you&apos;re a beginner or an advanced musician, we have something for everyone.
                     </p>
 
                     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

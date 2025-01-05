@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import { Testimonials } from "@/components/testimonials";
 import Testimonials2 from "@/components/testimonials2";
 import ContactSection from "@/components/ui/contact-small";
-import Image from "next/image";
+// import Image from "next/image";
 import { Typewriter } from 'react-simple-typewriter'
 
 export default function Home() {

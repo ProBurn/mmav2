@@ -1,17 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import { useEffect } from 'react'
+// import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { Field, Label, Switch } from '@headlessui/react'
 import SelectMenu from '@/components/ui/selectMenu'
-import { Controller, FieldValues, useForm, useWatch } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import Link from 'next/link'
 import { contactSchema, ContactSchema } from '@/utils/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { getRecaptchaToken } from '@/utils/reCaptcha'
 // import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
-import ContactSection from '@/components/ui/contact-small'
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+// import ContactSection from '@/components/ui/contact-small'
+// import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 
 // declare global {
@@ -34,22 +34,18 @@ export default function Example() {
     register,
     control,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    // formState: { errors, isSubmitting },
     reset,
     getValues,
     watch,
-    setValue
+    // setValue
   } = useForm<ContactSchema>({ resolver: zodResolver(contactSchema) });
   const formValues = watch();
   useEffect(() => {
     console.log('Form values changed:', formValues)
   }, [formValues])
 
-  const travel = useWatch({
-    control,
-    name: 'travelRequired',
-    defaultValue: false, // Default value
-  });
+ 
 
   // const handleSelectChange = (selected) => {
   //   console.log('Selected value:', selected);

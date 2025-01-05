@@ -1,13 +1,16 @@
 import Link from "next/link";
+import { JSX, SVGProps } from "react";
+
+
 
 const navigation = {
     lessons: [
         { name: 'Drum Lessons', href: '/lessons/drum-lessons' },
         { name: 'Guitar Lessons', href: '/lessons/guitar-lessons' },
-        { name: 'Piano Lessons', href: '/lessons/' },
-        { name: 'Singing Lessons', href: '/lessons/' },
-        { name: 'Ukulele Lessons', href: '/lessons/' },
-        { name: 'Bass Lessons', href: '/lessons/' },
+        { name: 'Piano Lessons', href: '/lessons/piano-lessons' },
+        { name: 'Singing Lessons', href: '/lessons/singing-lessons' },
+        { name: 'Ukulele Lessons', href: '/lessons/ukulele-lessons' },
+        { name: 'Bass Lessons', href: '/lessons/bass-lessons' },
     ],
     // support: [
     //   { name: 'Submit ticket', href: '#' },
@@ -28,7 +31,7 @@ const navigation = {
         {
           name: 'Facebook',
           href: 'https://www.facebook.com/MiddlesbroughMusicAcademy',
-          icon: (props) => (
+          icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
               <path
                 fillRule="evenodd"
@@ -41,7 +44,7 @@ const navigation = {
         {
           name: 'Instagram',
           href: 'https://www.instagram.com/explore/locations/1018990399/middlesbrough-music-academy/',
-          icon: (props) => (
+          icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
               <path
                 fillRule="evenodd"
@@ -76,7 +79,7 @@ const navigation = {
         {
           name: 'YouTube',
           href: 'https://www.youtube.com/c/ElliottsMusicSchool',
-          icon: (props) => (
+          icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
               <path
                 fillRule="evenodd"
