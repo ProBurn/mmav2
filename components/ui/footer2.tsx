@@ -104,7 +104,7 @@ const navigation = {
                 className="h-9"
               />
               <p className="text-balance text-sm/6 text-gray-600">
-                Making the world a better place through constructing elegant hierarchies.
+                Lessons available for all ages and ability levels. Join us at Middlesbrough Music Academy.
               </p>
               <div className="flex gap-x-6">
                 {navigation.social.map((item) => (

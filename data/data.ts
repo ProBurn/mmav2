@@ -1,3 +1,5 @@
+export type Teaches = 'drums' | 'guitar' | 'singing' | 'piano' | 'bass' | 'ukulele';
+
 export const lessons = [
   {
     img: '/content/drum.jpg',
@@ -52,45 +54,133 @@ export interface Testimonial {
   quote: string;
   name: string;
   title?: string; // Optional property
+  lessonType: Teaches;
 }
 
 export const testimonials: Testimonial[] = [
   {
-    quote:
-      "I can't recommend Zoe highly enough. Zoe has looked after our 3 dogs many times. Zoe is so trustworthy and caring, she goes beyond what is expected. We feel at ease when we go away that she loves and looks after our dogs nearly as much as we do and feel very supported. 5 *",
-    name: "Annalice Argyle",
-    // title: "A Tale of Two Cities",
+    quote: "The drum lessons at Middlesbrough Music Academy transformed my playing! The teachers are so supportive and I’ve learned techniques I never thought were possible.",
+    name: "Tommy J.",
+    lessonType: "drums"
   },
   {
-    quote:
-      "Highly recommend ❤️❤️",
-    name: "Carolynne Ruddick",
-    // title: "Hamlet",
+    quote: "As an adult learner, I was nervous to start guitar lessons, but the team here made me feel welcome and encouraged every step of the way. My playing has improved so much!",
+    name: "Emma W.",
+    lessonType: "guitar"
   },
   {
-    quote: "Only person I would trust with my pups, she really is the best ❤️",
-    name: "Mia Louise Goodenough",
-    // title: "A Dream Within a Dream",
+    quote: "The piano lessons are fantastic! I’ve been taking classes for a year now, and the progress I’ve made is incredible. I feel so confident now, thanks to the wonderful teachers.",
+    name: "Jack L.",
+    lessonType: "piano"
   },
   {
-    quote:
-      "I can't recommend Zoe enough, she has been grooming our Darwin for quite a few years now, including during her apprenticeship. Such a conscientious and caring dog lover. Do give her skills ago, you won't be disappointed 🐕🐩🦮",
-    name: "Eddie Humphries",
-    // title: "Pride and Prejudice",
+    quote: "I’ve been playing bass for years, but the lessons at Middlesbrough Music Academy have really taken my skills to the next level. The teachers are amazing and the community is so welcoming.",
+    name: "Chris R.",
+    lessonType: "bass"
   },
   {
-    quote:
-      "You are doing a fantastic job at looking after all these beautiful dogs. You are a very caring person and the dogs are lucky to have you.",
-    name: "Unknown",
-    // title: "Moby-Dick",
+    quote: "I always wanted to learn the ukulele, and I’m so glad I found Middlesbrough Music Academy. The lessons are fun and the teachers really make sure you understand everything.",
+    name: "Sophie M.",
+    lessonType: "ukulele"
   },
   {
-    quote:
-      "How beautiful does my Billy look!! I actually cried when I seen him 🥹💙 All thanks to Zoe Symes. Highly recommend she is absolutely brilliant with Billy he loves his visits and walks",
-    name: "Olivia Davidson",
-    // title: "Moby-Dick",
+    quote: "Singing lessons here have been life-changing. The teacher helped me find my voice and build the confidence I never knew I had. I’m so glad I took the plunge!",
+    name: "Rachel D.",
+    lessonType: "singing"
   },
-];
+  {
+    quote: "The guitar lessons have been so enjoyable and challenging! I’ve gained so much technical knowledge and my performance skills have definitely improved.",
+    name: "Ben K.",
+    lessonType: "guitar"
+  },
+  {
+    quote: "I’ve been a piano student here for two years and the improvement in my ability to read music and play fluently is unreal. The lessons are structured and easy to follow.",
+    name: "Lily H.",
+    lessonType: "piano"
+  },
+  {
+    quote: "The ukulele lessons are perfect for beginners like me. I never thought I’d be able to play an instrument, but now I’m strumming away with confidence!",
+    name: "Megan F.",
+    lessonType: "ukulele"
+  },
+  {
+    quote: "The singing lessons have not only improved my vocal ability but also helped me develop better breath control and stage presence. I now perform with so much more confidence.",
+    name: "Oliver B.",
+    lessonType: "singing"
+  },
+  {
+    quote: "The bass lessons here are the best! I’ve always struggled with timing, but now I’ve got a solid groove. I really appreciate how patient and thorough the teachers are.",
+    name: "David T.",
+    lessonType: "bass"
+  },
+  {
+    quote: "I came to the academy to learn drums and was amazed at how quickly I progressed. The teacher’s insights into rhythm and timing helped me become a much more confident drummer.",
+    name: "Sarah W.",
+    lessonType: "drums"
+  },
+  {
+    quote: "Learning guitar at Middlesbrough Music Academy has been such a rewarding experience. The personalized approach to teaching made learning fun and I’ve made huge strides.",
+    name: "Alex G.",
+    lessonType: "guitar"
+  },
+  {
+    quote: "I started piano lessons as a complete beginner, and now I’m able to play several pieces. The teachers here are knowledgeable and friendly, which makes learning a lot more enjoyable.",
+    name: "Isla P.",
+    lessonType: "piano"
+  },
+  {
+    quote: "I have been playing bass for several years, but the lessons at this academy have really deepened my understanding of the instrument and musical theory. It’s been such an enriching experience.",
+    name: "James A.",
+    lessonType: "bass"
+  },
+  {
+    quote: "I’ve learned so much from the singing lessons here. The teacher helped me identify and work on my weaknesses, and I can feel my voice becoming stronger every week.",
+    name: "Katie L.",
+    lessonType: "singing"
+  },
+  {
+    quote: "The drum lessons are outstanding. The teacher’s attention to detail and focus on technique has helped me improve my coordination and overall musicality.",
+    name: "Daniel P.",
+    lessonType: "drums"
+  },
+  {
+    quote: "The ukulele lessons were a lot of fun and taught me how to play songs I love. The teacher was very patient and supportive, and I felt really motivated to keep improving.",
+    name: "Charlotte R.",
+    lessonType: "ukulele"
+  },
+  {
+    quote: "I’ve tried a few different music schools, but the atmosphere at Middlesbrough Music Academy is special. The teachers are talented and passionate, and they really care about your progress.",
+    name: "Steve M.",
+    lessonType: "guitar"
+  },
+  {
+    quote: "The singing lessons helped me overcome my fear of performing in front of others. I feel much more confident on stage, and my vocal range has improved dramatically.",
+    name: "Sophie D.",
+    lessonType: "singing"
+  },
+  {
+    quote: "I’ve been learning bass for six months, and the progress I’ve made is beyond what I imagined. The lessons are always engaging, and the teacher makes complex techniques easy to understand.",
+    name: "Ethan J.",
+    lessonType: "bass"
+  },
+  {
+    quote: "The ukulele lessons are so much fun! I love how the lessons are structured and how we get to play new songs each week. I’m already playing along with my friends!",
+    name: "Nina K.",
+    lessonType: "ukulele"
+  },
+  {
+    quote: "After taking guitar lessons for a few months, I can play many of my favorite songs! The teacher takes the time to really explain each step, which has helped me build a strong foundation.",
+    name: "Oliver S.",
+    lessonType: "guitar"
+  },
+  {
+    quote: "The piano lessons at Middlesbrough Music Academy have really exceeded my expectations. I’ve gained so much musical knowledge, and I’m constantly amazed at my progress.",
+    name: "Isabella N.",
+    lessonType: "piano"
+  }
+]
+
+
 
 interface MenuItem {
   id: number;
@@ -115,7 +205,7 @@ const menuItems: MenuItem[] = [
 ];
 
 
-export type Teaches = 'drums' | 'guitar' | 'singing' | 'piano' | 'bass' | 'ukulele';
+
 
 export const team: {
   name: string,
@@ -524,3 +614,67 @@ export const team: {
     ],
   }
 ]
+
+
+export const lessonSpecificFaqs: { [K in Teaches]: { question: string; answer: string }[] } = {
+  drums: [
+    {
+      question: "What should I bring to my drum lesson?",
+      answer: "For your drum lessons, you should bring comfortable clothing, a notebook for taking notes, and your own pair of drumsticks if you have them. Don't worry if you don't have a drum kit at home; we provide all necessary equipment for practice during the lessons."
+    },
+    {
+      question: "Do I need to have a drum kit at home to take lessons?",
+      answer: "It's not necessary to have your own drum kit at home. We provide drums for the lessons, and we can give you practice tips that you can apply without an entire kit. However, if you plan to practice more frequently, having a practice pad at home can be helpful."
+    }
+  ],
+  guitar: [
+    {
+      question: "What guitar should I start with?",
+      answer: "Starting with an acoustic guitar is ideal for beginners as it's versatile and easier on the hands. If you're more interested in electric guitar, that's perfectly fine, and we can help you get started with the right equipment for that style."
+    },
+    {
+      question: "How long will it take to learn basic guitar chords?",
+      answer: "It typically takes a few weeks to get comfortable with basic chords, depending on the practice time you dedicate. Our teachers will guide you through the process at your own pace to make sure you master each step."
+    }
+  ],
+  piano: [
+    {
+      question: "Do I need to know how to read music before starting piano lessons?",
+      answer: "No, you don't need to know how to read music before starting. Our lessons are designed to teach you both piano skills and how to read music as you progress, starting with the basics."
+    },
+    {
+      question: "How often should I practice the piano at home?",
+      answer: "It's recommended to practice at least 20-30 minutes every day, but the most important thing is consistency. Your teacher will give you a practice schedule that's tailored to your goals."
+    }
+  ],
+  bass: [
+    {
+      question: "Can I learn bass if I have no prior musical experience?",
+      answer: "Absolutely! Bass is a great instrument for beginners, and we'll start with the fundamentals to ensure you have a strong foundation. Whether you're new to music or just new to bass, we’ll help you along the way."
+    },
+    {
+      question: "Is bass easier to learn than guitar?",
+      answer: "Bass has its unique challenges, but many students find it easier to start with because it focuses more on rhythm and groove than melody. We tailor the lessons to your individual needs, regardless of whether you're learning bass or guitar."
+    }
+  ],
+  ukulele: [
+    {
+      question: "Is the ukulele easier to learn than other string instruments?",
+      answer: "Yes, the ukulele is often considered easier to learn than other string instruments like guitar due to its smaller size and fewer strings. Our lessons will guide you through the basics and help you develop your skills."
+    },
+    {
+      question: "Do I need a special ukulele for lessons?",
+      answer: "No, any standard ukulele will work for lessons. If you're just getting started, we recommend a soprano or concert ukulele, but feel free to use whatever you have."
+    }
+  ],
+  singing: [
+    {
+      question: "Can anyone learn to sing, or is it a talent you’re born with?",
+      answer: "Anyone can learn to sing! It’s a skill that can be developed with the right guidance and practice. Our singing lessons focus on building confidence, control, and technique to help you unlock your vocal potential."
+    },
+    {
+      question: "How can I improve my vocal range?",
+      answer: "Improving your vocal range requires regular practice, proper warm-ups, and working with a skilled teacher who can guide you through the exercises that will safely extend your range."
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Faq from '@/components/ui/faq'
 import { team } from '@/data/data'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import Image from 'next/image'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -13,33 +15,33 @@ const navigation = [
   { name: 'Company', href: '#' },
 ]
 const stats = [
-  { label: 'Transactions every 24 hours', value: '44 million' },
-  { label: 'Assets under holding', value: '$119 trillion' },
-  { label: 'New users annually', value: '46,000' },
+  { label: 'Hours of lessons taught since inception', value: '44 million' },
+  { label: `Hairs on Chris Meek's head`, value: '119 trillion' },
+  { label: 'New students annually', value: '46,000' },
 ]
 
 
 const faqs = [
-    {
-        question: 'What is the mission of the Music Academy?',
-        answer: 'Our mission is to provide a platform for musicians of all levels to develop their skills, ignite their passion, and pursue their musical dreams. With personalized lessons and a welcoming community, every student is set up for success.',
-    },
-    {
-        question: 'What types of lessons do you offer?',
-        answer: 'We offer a variety of lessons including guitar, piano, drums, and vocal training. Our experienced instructors tailor each lesson to the individual needs and goals of the student.',
-    },
-    {
-        question: 'How can I sign up for lessons?',
-        answer: 'You can sign up for lessons by visiting our website and filling out the registration form. Once submitted, one of our team members will contact you to schedule your first lesson.',
-    },
-    {
-        question: 'Do you offer online lessons?',
-        answer: 'Yes, we offer both in-person and online lessons to accommodate the needs of our students. Our online lessons are conducted via video conferencing platforms and provide the same level of instruction as in-person lessons.',
-    },
-    {
-        question: 'What is the cost of lessons?',
-        answer: 'The cost of lessons varies depending on the type and duration of the lesson. Please visit our pricing page for detailed information on our lesson rates.',
-    },
+  {
+    question: 'What is the mission of the Music Academy?',
+    answer: 'Our mission is to provide a platform for musicians of all levels to develop their skills, ignite their passion, and pursue their musical dreams. With personalized lessons and a welcoming community, every student is set up for success.',
+  },
+  {
+    question: 'What types of lessons do you offer?',
+    answer: 'We offer a variety of lessons including guitar, piano, drums, and vocal training. Our experienced instructors tailor each lesson to the individual needs and goals of the student.',
+  },
+  {
+    question: 'How can I sign up for lessons?',
+    answer: 'You can sign up for lessons by visiting our website and filling out the registration form. Once submitted, one of our team members will contact you to schedule your first lesson.',
+  },
+  {
+    question: 'Do you offer online lessons?',
+    answer: 'Yes, we offer both in-person and online lessons to accommodate the needs of our students. Our online lessons are conducted via video conferencing platforms and provide the same level of instruction as in-person lessons.',
+  },
+  {
+    question: 'What is the cost of lessons?',
+    answer: 'The cost of lessons varies depending on the type and duration of the lesson. Please visit our pricing page for detailed information on our lesson rates.',
+  },
 ];
 const values = [
   {
@@ -117,6 +119,16 @@ const values = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: imgRef, // Set the target to the element referenced by ref
+    offset: ["start end", "end start"], // Optionally set offsets if needed
+  });
+  const MotionImage = motion(Image)
+
+  const translateInsideImage = useTransform(scrollYProgress, [0, 1], ["center 25%", "center 75%"]);
+
 
   return (
     <div className="bg-white">
@@ -248,54 +260,59 @@ export default function Example() {
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                 <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
                   <h1 data-scroll data-scroll-speed="0.4" className="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                  Unleashing Creativity, One Note at a Time
+                    Unleashing Creativity, One Note at a Time
                   </h1>
                   <p data-scroll data-scroll-speed="0.3" className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
-                  Whether you&apos;re picking up an instrument for the first time or perfecting your skills, Middlesbrough Music Academy provides an environment where creativity flourishes. Our team of experienced musicians is here to guide and support you on your musical journey.
+                    Whether you&apos;re picking up an instrument for the first time or perfecting your skills, Middlesbrough Music Academy provides an environment where creativity flourishes. Our team of experienced musicians is here to guide and support you on your musical journey.
                   </p>
                 </div>
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-                  <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
-                    <div className="relative">
+                  <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80" >
+                    <div className="relative" data-scroll data-scroll-speed="0.4">
                       <img
+
                         alt=""
-                        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src="/content/school/drums.jpg"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                     </div>
                   </div>
-                  <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                    <div className="relative">
+                  <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36" >
+                    <div className="relative" data-scroll data-scroll-speed="0.3">
                       <img
+
                         alt=""
-                        src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src="/content/school/piano2.jpg"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                     </div>
-                    <div className="relative">
+                    <div className="relative" data-scroll data-scroll-speed="0.25">
                       <img
+
                         alt=""
-                        src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
+                        src="/content/school/drums2.jpg"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                     </div>
                   </div>
-                  <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
+                  <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0" data-scroll data-scroll-speed="0.5">
                     <div className="relative">
                       <img
+
                         alt=""
-                        src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                        src="/content/school/lobby.jpg"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                     </div>
-                    <div className="relative">
+                    <div className="relative" data-scroll data-scroll-speed="-0.2">
                       <img
+
                         alt=""
-                        src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src="/content/school/hello-there.jpg"
                         className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
                       />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
@@ -314,7 +331,7 @@ export default function Example() {
             <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
               <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
                 <p className="text-xl/8 text-gray-600">
-                Our mission is simple: to provide a platform for musicians of all levels to develop their skills, ignite their passion, and pursue their musical dreams. With personalized lessons and a welcoming community, every student is set up for success.
+                  Our mission is simple: to provide a platform for musicians of all levels to develop their skills, ignite their passion, and pursue their musical dreams. With personalized lessons and a welcoming community, every student is set up for success.
                 </p>
                 <p className="mt-10 max-w-xl text-base/7 text-gray-700">
                   Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
@@ -338,12 +355,17 @@ export default function Example() {
         </div>
 
         {/* Image section */}
-        <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-          <img
+        <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8" ref={imgRef}>
+          <MotionImage
+          width={998}
+          height={399}
+          style={{
+            objectPosition: translateInsideImage,
+          }}
             alt=""
             // src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-            src="/content/middlesbrough-music-academy-interior-1.jpg"
-            className="aspect-[5/2] w-full object-cover object-[50%_30%] xl:rounded-3xl"
+            src="/content/school/lobby.jpg"
+            className="aspect-[5/2] w-full object-cover object-[50%_50%] xl:rounded-3xl"
           />
         </div>
 

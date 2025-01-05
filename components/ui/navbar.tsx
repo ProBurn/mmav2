@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import ConditionalLink from '@/components/conditionalLink';
+// import { lessonPages } from '@/data/data';
 // import { useRouter } from "next/navigation";
 // import { Button } from '@/components/ui/moving-border';
 // import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
@@ -15,30 +16,30 @@ const Navbar = () => {
     useEffect(() => {
         const htmlElement = document.documentElement;
         const targetElement = document.getElementById("navbar");
-    
+
         if (!targetElement) return;
-    
+
         const updatePadding = () => {
-          const computedStyle = window.getComputedStyle(htmlElement);
-          targetElement.style.paddingRight = computedStyle.paddingRight;
+            const computedStyle = window.getComputedStyle(htmlElement);
+            targetElement.style.paddingRight = computedStyle.paddingRight;
         };
-    
+
         // Initial update
         updatePadding();
-    
+
         const observer = new MutationObserver(() => {
-          updatePadding();
+            updatePadding();
         });
-    
+
         observer.observe(htmlElement, {
-          attributes: true,
-          attributeFilter: ["style"], // Only observe changes to the style attribute
+            attributes: true,
+            attributeFilter: ["style"], // Only observe changes to the style attribute
         });
-    
+
         return () => {
-          observer.disconnect(); // Clean up on unmount
+            observer.disconnect(); // Clean up on unmount
         };
-      }, []);
+    }, []);
 
     interface MenuItem {
         id: number;
@@ -51,12 +52,14 @@ const Navbar = () => {
         {
             id: 2, label: 'Lessons', href: '/lessons',
             dropdown: [
-                { id: 1, label: 'Drum', href: '/lessons/drum' },
-                { id: 2, label: 'Guitar', href: '/lessons/guitar' },
-                { id: 3, label: 'Bass', href: '/lessons/bass' },
-                { id: 4, label: 'Piano', href: '/lessons/piano' },
-                { id: 4, label: 'Ukulele', href: '/lessons/ukulele' },
-                { id: 4, label: 'Singing', href: '/lessons/singing' },
+                { id: 1, label: 'Drum', href: '/lessons/drum-lesson' },
+                { id: 2, label: 'Guitar', href: '/lessons/guitar-lesson' },
+                { id: 3, label: 'Bass', href: '/lessons/bass-lesson' },
+                { id: 4, label: 'Piano', href: '/lessons/piano-lesson' },
+                { id: 5, label: 'Ukulele', href: '/lessons/ukulele-lesson' },
+                { id: 6, label: 'Singing', href: '/lessons/singing-lesson' },
+                { id: 7, label: 'All Lessons ->', href: '/lessons' },
+
             ]
         },
         { id: 3, label: 'Contact', href: '/contact' },
@@ -106,22 +109,56 @@ const Navbar = () => {
     //     };
     //   }, [router]);
 
+    const [showNavbar, setShowNavbar] = useState(true);
+
+
+    const { scrollY } = useScroll()
+    // const [scrollDirection, setScrollDirection] = useState("down")
+
+    useMotionValueEvent(scrollY, "change", (current: number) => {
+        const previous = scrollY.getPrevious() ?? 0;
+        const diff = current - previous;
+        // setScrollDirection(diff > 0 ? "down" : "up")
+        setShowNavbar(diff < 0 || current < 100)
+        // console.log(current, scrollDirection)
+    })
+
+    useEffect(() => {
+        console.log(showNavbar)
+    }, [showNavbar])
+
+
     return (
         <div
         >
-            <nav className="bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg relative w-full" id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}>
+            {/* <nav  className={`bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg w-full ${showNavbar ? "fixed" : "absolute"}`} id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}> */}
+            <motion.nav
+                className="bg-slate-700 bg-opacity-50 p-4  backdrop-blur-lg w-full fixed"
+                id="navbar"
+                style={{ zIndex: 450 }}
+                ref={dropdownRef}
+                initial={{ y: -100, opacity: 0 }} // Hidden state
+                animate={{ y: showNavbar ? 0 : -100, opacity: showNavbar ? 1 : 0 }} // Dynamic animation
+                transition={{
+                    // type: "spring",    // Spring transition
+    // Adjust damping
+                    ease: "easeInOut", // Easing function
+                }}
+            >
+
+
                 <div className="container mx-auto flex justify-between items-center">
 
 
 
                     <Link href="/" className="">
-                    <div onClick={closeNavbar} className='flex items-center space-x-4'>
+                        <div onClick={closeNavbar} className='flex items-center space-x-4'>
 
-                        <img src="/content/logo-small.png" alt="Middlesbrough Music Academy Logo" className="h-8 w-8" />
-                        <div className="text-white text-lg font-semibold">
-                            Middlesbrough Music Academy
+                            <img src="/content/logo-small.png" alt="Middlesbrough Music Academy Logo" className="h-8 w-8" />
+                            <div className="text-white text-lg font-semibold">
+                                Middlesbrough Music Academy
+                            </div>
                         </div>
-                    </div>
                     </Link>
 
                     <div className="hidden md:flex space-x-10 z-50"> {/* Increased space-x-4 to space-x-6 */}
@@ -240,7 +277,7 @@ const Navbar = () => {
                                     <motion.div
                                         key={item.label}
                                         // href={!item.dropdown ? item.href : undefined}
-                                        className="block px-4 py-2 text-gray-300 hover:text-white cursor-pointer"
+                                        className="block px-4 py-2 text-white hover:text-white cursor-pointer"
                                         initial={{ opacity: 0, x: -20 }}
                                         animate={{ opacity: 1, x: 0 }}
                                         exit={{ opacity: 0, x: -20 }}
@@ -282,7 +319,7 @@ const Navbar = () => {
                                                     {item.dropdown.map((subItem, subIndex) => (
                                                         <Link href={subItem.href} key={`subItem-${subIndex}`} onClick={closeNavbar}>
                                                             <motion.div
-                                                                className="block px-4 py-2 text-gray-300 hover:text-white"
+                                                                className="block px-4 py-2 text-white hover:text-white"
                                                                 // href={subItem.href}
                                                                 key={`subItem-${subIndex}`}
                                                                 initial={{ opacity: 0, x: -20 }}
@@ -304,7 +341,7 @@ const Navbar = () => {
                     )}
                 </AnimatePresence>
 
-            </nav>
+            </motion.nav>
         </div>
     )
 }
@@ -395,9 +432,9 @@ const PricingContent: React.FC<{ dropdown?: { id: number; label: string; href: s
             Enterprise
           </a>
         </div> */}
-            <button className="w-full rounded-lg border-2 border-neutral-950 px-4 py-2 font-semibold transition-colors hover:bg-neutral-950 hover:text-white">
+            {/* <button className="w-full rounded-lg border-2 border-neutral-950 px-4 py-2 font-semibold transition-colors hover:bg-neutral-950 hover:text-white">
                 Contact for custom
-            </button>
+            </button> */}
         </div>
     );
 };
