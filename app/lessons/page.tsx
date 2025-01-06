@@ -39,7 +39,7 @@ const page = () => {
         {
             id: 1,
             name: 'Drum Lesson',
-            href: '/lessons/drum-lessons',
+            href: '/lessons/drum-lesson',
             imageSrc: '/content/drum.jpg',
             imageAlt: "Front of men's Basic Tee in black.",
             price: 'From £12',
@@ -48,7 +48,7 @@ const page = () => {
         {
             id: 2,
             name: 'Piano Lesson',
-            href: '/lessons/piano-lessons',
+            href: '/lessons/piano-lesson',
             imageSrc: '/content/piano.jpg',
             imageAlt: "Front of men's Basic Tee in white.",
             price: 'From £12',
@@ -57,7 +57,7 @@ const page = () => {
         {
             id: 3,
             name: 'Guitar Lesson',
-            href: '/lessons/guitar-lessons',
+            href: '/lessons/guitar-lesson',
             imageSrc: '/content/guitar.jpg',
             imageAlt: "Front of men's Basic Tee in gray.",
             price: 'From £12',
@@ -66,7 +66,7 @@ const page = () => {
         {
             id: 4,
             name: 'Bass Lesson',
-            href: '/lessons/bass-lessons',
+            href: '/lessons/bass-lesson',
             imageSrc: '/content/bass (2).jpg',
             imageAlt: "Front of men's Basic Tee in blue.",
             price: 'From £12',
@@ -75,7 +75,7 @@ const page = () => {
         {
             id: 5,
             name: 'Ukulele Lesson',
-            href: '/lessons/ukulele-lessons',
+            href: '/lessons/ukulele-lesson',
             imageSrc: '/content/ukulele.jpg',
             imageAlt: "Front of men's Basic Tee in green.",
             price: 'From £12',
@@ -84,7 +84,7 @@ const page = () => {
         {
             id: 6,
             name: 'Singing Lesson',
-            href: '/lessons/singing-lessons',
+            href: '/lessons/singing-lesson',
             imageSrc: '/content/singing.jpg',
             imageAlt: "Front of men's Basic Tee in red.",
             price: 'From £12',
