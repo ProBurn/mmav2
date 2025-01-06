@@ -6,6 +6,7 @@ import { ChevronUpDownIcon } from '@heroicons/react/16/solid'
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { UseFormRegister } from 'react-hook-form'
 import { lessons } from '@/data/data'
+import { cn } from '@/lib/utils'
 
 // const people = [
 //     {
@@ -100,9 +101,11 @@ type SelectMenuProps = {
     register?: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
     name?: string;
     onChange?: (selected: { id: number; name: string; avatar: string } | null) => void;
+    className?: string;
+    error?: boolean | undefined;
 }
 
-export default function SelectMenu({ register, name = '', onChange }: SelectMenuProps) {
+export default function SelectMenu({ register, name = '', onChange, className, error=false }: SelectMenuProps) {
     const [selected, setSelected] = useState<{ id: number; name: string; avatar: string } | null>(null)
     // const dropdownItems = items
 
@@ -116,13 +119,15 @@ export default function SelectMenu({ register, name = '', onChange }: SelectMenu
     return (
         <Listbox value={selected} onChange={handleChange}>
             {/* <Label className="block text-sm/6 font-medium text-gray-900">Assigned to</Label> */}
-            <div className="relative mt-2">
+            <div className={cn("relative", className)}>
                 <ListboxButton
                     {...(register ? register(name) : {})}
-                    className="grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pl-3 pr-2 text-left text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    className={cn("grid w-full cursor-default grid-cols-1 rounded-md bg-white py-1.5 pl-3 pr-2 text-left outline outline-1 -outline-offset-1 focus:outline focus:outline-2 focus:-outline-offset-2  sm:text-sm/6",
+                        error ? 'text-red-900 outline-red-300 placeholder:text-red-300 focus:outline-red-600' : 'text-gray-900 outline-gray-300 placeholder:text-gray-400 focus:outline-indigo-600')}
+                    >
                     <span className="col-start-1 row-start-1 flex items-center gap-3 pr-6">
                         {/* <img alt="" src={selected.avatar} className="size-5 shrink-0 rounded-full" /> */}
-                        <span className={`block truncate ${!selected ? 'text-gray-500' : ''}`}>
+                        <span className={`block truncate ${!selected ? (error ? 'text-red-500' : 'text-gray-500') : ''}`}>
                             {selected ? selected?.name : 'Please Select'}
                         </span>
                     </span>

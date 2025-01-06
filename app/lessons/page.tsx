@@ -43,7 +43,7 @@ const page = () => {
             imageSrc: '/content/drum.jpg',
             imageAlt: "Front of men's Basic Tee in black.",
             price: 'From £12',
-            color: '20 minutes £12 | 40 minutes £22',
+            color: '20 minutes / 40 minutes',
         },
         {
             id: 2,
@@ -51,8 +51,8 @@ const page = () => {
             href: '/lessons/piano-lessons',
             imageSrc: '/content/piano.jpg',
             imageAlt: "Front of men's Basic Tee in white.",
-            price: '$40',
-            color: 'White',
+            price: 'From £12',
+            color: '20 minutes / 40 minutes',
         },
         {
             id: 3,
@@ -60,17 +60,17 @@ const page = () => {
             href: '/lessons/guitar-lessons',
             imageSrc: '/content/guitar.jpg',
             imageAlt: "Front of men's Basic Tee in gray.",
-            price: '$30',
-            color: 'Gray',
+            price: 'From £12',
+            color: '20 minutes / 40 minutes',
         },
         {
             id: 4,
             name: 'Bass Lesson',
             href: '/lessons/bass-lessons',
-            imageSrc: '/content/Bass (2).jpg',
+            imageSrc: '/content/bass (2).jpg',
             imageAlt: "Front of men's Basic Tee in blue.",
-            price: '$35',
-            color: 'Blue',
+            price: 'From £12',
+            color: '20 minutes / 40 minutes',
         },
         {
             id: 5,
@@ -78,8 +78,8 @@ const page = () => {
             href: '/lessons/ukulele-lessons',
             imageSrc: '/content/ukulele.jpg',
             imageAlt: "Front of men's Basic Tee in green.",
-            price: '$25',
-            color: 'Green',
+            price: 'From £12',
+            color: '20 minutes / 40 minutes',
         },
         {
             id: 6,
@@ -87,8 +87,8 @@ const page = () => {
             href: '/lessons/singing-lessons',
             imageSrc: '/content/singing.jpg',
             imageAlt: "Front of men's Basic Tee in red.",
-            price: '$45',
-            color: 'Red',
+            price: 'From £12',
+            color: '20 minutes / 40 minutes',
         }
     ]
 

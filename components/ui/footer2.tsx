@@ -5,12 +5,11 @@ import { JSX, SVGProps } from "react";
 
 const navigation = {
     lessons: [
-        { name: 'Drum Lessons', href: '/lessons/drum-lessons' },
+        { name: 'Drum Lessons', href: '/lessons/drum-lesson' },
         { name: 'Guitar Lessons', href: '/lessons/guitar-lessons' },
-        { name: 'Piano Lessons', href: '/lessons/piano-lessons' },
-        { name: 'Singing Lessons', href: '/lessons/singing-lessons' },
-        { name: 'Ukulele Lessons', href: '/lessons/ukulele-lessons' },
-        { name: 'Bass Lessons', href: '/lessons/bass-lessons' },
+        { name: 'Singing Lessons', href: '/lessons/singing-lesson' },
+        { name: 'Ukulele Lessons', href: '/lessons/ukulele-lesson' },
+        { name: 'Bass Lessons', href: '/lessons/bass-lesson' },
     ],
     // support: [
     //   { name: 'Submit ticket', href: '#' },
@@ -18,14 +17,14 @@ const navigation = {
     //   { name: 'Guides', href: '#' },
     // ],
     company: [
-      { name: 'About', href: '#' },
-      { name: 'Contact', href: '#' },
+      { name: 'About', href: '/about' },
+      { name: 'Contact', href: '/contact' },
 
     ],
     legal: [
-      { name: 'Terms of service', href: '#' },
-      { name: 'Privacy policy', href: '#' },
-      { name: 'Cancellation policy', href: '#' },
+      { name: 'Terms of service', href: '/terms-of-service' },
+      { name: 'Privacy policy', href: '/privacy-policy' },
+      { name: 'Cancellation policy', href: '/cancellation-policy' },
     ],
     social: [
         {

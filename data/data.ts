@@ -678,3 +678,24 @@ export const lessonSpecificFaqs: { [K in Teaches]: { question: string; answer: s
     }
   ]
 }
+
+export const contact = {
+  email: "contact@middlesbroughmusicacademy.co.uk",
+  phone: "+448002465099",
+  phonePretty: "0800 246 5099",
+  addressShort: "Cargo Fleet Buisness Centre, Middlesbrough Rd, Middlesbrough, TS6 6XH",
+  addressLong: "Suite 5b, Cargo Fleet business centre, Cargo Fleet Offices, South bank, Middlesbrough Rd, Cargo Fleet, Middlesbrough, TS6 6XH",
+  address: {
+    line1: "suite 5b",
+    line2: "Cargo Fleet business centre",
+    line3: "Cargo Fleet Offices",
+    line4: "South bank",
+    line5: "Middlesbrough Rd",
+    line6: "Cargo Fleet",
+    line7: "Middlesbrough",
+    line8: "TS6 6XH",
+
+  }
+
+  
+}

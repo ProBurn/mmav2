@@ -428,7 +428,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                     <div className="sm:flex sm:justify-between">
                                         {/* Size selector */}
                                         <fieldset>
-                                            <legend className="block text-sm font-medium text-gray-700">Size</legend>
+                                            <legend className="block text-sm font-medium text-gray-700">Lesson Duration</legend>
                                             <RadioGroup
                                                 value={selectedDuration}
                                                 onChange={setSelectedDuration}
@@ -441,13 +441,13 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                                         value={variant}
                                                         aria-label={variant.name}
                                                         aria-description={variant.description}
-                                                        className="group relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-indigo-500"
+                                                        className="group relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-accent-hover"
                                                     >
                                                         <p className="text-base font-medium text-gray-900">{variant.name}</p>
                                                         <p className="mt-1 text-sm text-gray-500">{variant.description}</p>
                                                         <div
                                                             aria-hidden="true"
-                                                            className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-indigo-500"
+                                                            className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-accent-hover"
                                                         />
                                                     </Radio>
                                                 ))}
@@ -456,7 +456,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                     </div>
                                     <div className="mt-4">
                                         <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">
-                                            <span>What size should I buy?</span>
+                                            <span>What lesson length do I need?</span>
                                             <QuestionMarkCircleIcon
                                                 aria-hidden="true"
                                                 className="ml-2 size-5 shrink-0 text-gray-400 group-hover:text-gray-500"

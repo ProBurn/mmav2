@@ -3,6 +3,7 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import sgMail from "@sendgrid/mail";
 import qs from "qs";
+import {z} from "zod";
 
 if (!process.env.SENDGRID_API_KEY) {
   throw new Error("SENDGRID_API_KEY is not defined");
@@ -12,10 +13,20 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 export async function POST(request: Request) {
   const body: unknown = await request.json();
   const ip = request.headers.get('x-forwarded-for') || undefined;
-  const result = contactSchema.safeParse(body);
-  let formData = result.data as ContactSchema & { reCaptchaScore: number | string};
+ 
+  // console.log('body', body)
+  const result: z.SafeParseReturnType<ContactSchema, ContactSchema> = contactSchema.safeParse(body);
+  let formData = result.data as ContactSchema & { reCaptchaScore: number | string };
   let errors = {};
+  console.log("result:", result)
+  console.log("body", body)
 
+  // if(!result.success) {
+  // return new Response(JSON.stringify(result), {
+  //   status: 402,
+  //   headers: { 'content-type': 'application/json' }
+  // })
+  // }
   const recaptchaResponse = await axios.post('https://www.google.com/recaptcha/api/siteverify', qs.stringify({
     secret: process.env.RECAPTCHA_SECRET_KEY,
     response: result.data?.recaptchaToken,
@@ -31,11 +42,11 @@ export async function POST(request: Request) {
   if (!recaptchaResponse.data?.success || recaptchaResponse.data?.score < 0.5) {
     errors = { ...errors, "reCaptcha": 'reCaptcha Verification Failure' };
     return new Response(JSON.stringify({ message: `reCaptcha Failure` }), {
-      status: 400,
+      status: 418,
       headers: { 'content-type': 'application/json' }
     })
   }
-formData = { ...formData, ip: ip, reCaptchaScore: recaptchaResponse.data.score }
+  formData = { ...formData, ip: ip, reCaptchaScore: recaptchaResponse.data.score }
 
 
   console.log(result);
@@ -45,6 +56,7 @@ formData = { ...formData, ip: ip, reCaptchaScore: recaptchaResponse.data.score }
     result.error.issues.forEach((issue) => {
       errors = { ...errors, [issue.path[0]]: issue.message };
     });
+    // console.log(errors);
   }
   let emailContent = `<h1>You have a new contact form submission</h1>`;
   for (const [key, value] of Object.entries(formData)) {
@@ -65,11 +77,11 @@ formData = { ...formData, ip: ip, reCaptchaScore: recaptchaResponse.data.score }
     await sgMail.send(msg);
     console.log('email sent')
     // return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-} catch (error) {
+  } catch (error) {
     console.error(error);
     errors = { ...errors, "Mail Error": "Failed to send" };
     // return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
-}
+  }
 
 
 
