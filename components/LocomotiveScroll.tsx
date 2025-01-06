@@ -7,12 +7,12 @@ const LocomotiveScroll = () => {
   useEffect(() => {
     const loadLocomotiveScroll = async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      // const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      // if (!isMobile) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (!isMobile) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const locomotiveScroll = new LocomotiveScroll();
         // console.log("locomotiveScroll", locomotiveScroll);
-      // }
+      }
     };
 
     loadLocomotiveScroll();
