@@ -402,7 +402,7 @@ export default function Example() {
                   defaultValue={false}
                   render={({ field }) => (
                     <Switch
-                      checked={field.value}
+                      checked={field.value ?? false}
                       onChange={field.onChange}
                       className="group flex w-8 flex-none cursor-pointer rounded-full bg-gray-200 p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 data-[checked]:bg-indigo-600"
                     >
