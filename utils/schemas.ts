@@ -15,7 +15,8 @@ export const contactSchema = z.object({
 
 
     message: z.string().optional().nullable(),
-    privacyPolicy: z.boolean().refine((value) => value === true, { message: "You must accept the privacy policy" }),
+    // privacyPolicy: z.boolean().refine((value) => value === true, { message: "You must accept the privacy policy" }),
+    privacyPolicy: z.boolean().optional().nullable(),
     // grecaptcha: z.string().nonempty(),
     recaptchaToken: z.string().optional().nullable(),
     ip: z.string().optional().nullable(),

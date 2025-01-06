@@ -8,7 +8,7 @@ const MapComponent = ({className} : {
     className?: string
 }) => {
     const position = { lat: 54.5756825, lng: -1.1901155 };
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const [markerRef, marker] = useAdvancedMarkerRef();
     // 54.5756825,-1.1901155
     // 54.5754285,-1.1909573
@@ -57,7 +57,7 @@ const MapComponent = ({className} : {
                                     {/* <div className="flex flex-row justify-start items-start"> */}
                                     <div className="grid grid-cols-[auto,1fr] ">
 
-                                        <strong>Address:{' '}</strong> <a className='text-blue-600 underline border-none' href="https://goo.gl/maps/example"><p>Cargo Fleet Buisness Centre, Middlesbrough Rd, Middlesbrough, TS6 6XH</p></a>
+                                        <p><strong>Address:{' '}</strong> </p> <p><a className='text-blue-600 underline border-none' href="#">Cargo Fleet Buisness Centre, Middlesbrough Rd, Middlesbrough, TS6 6XH</a></p>
                                         <p><strong>Phone:</strong></p><p> <a href={`tel:${contact.phone}`} className="text-blue-600 underline">{contact.phonePretty}</a></p>
                                         <p><strong>Email:</strong> </p><p> <a href={`mailto:${contact.email}`} className="text-blue-600 underline">{contact.email}</a></p>
                                         <p><strong>Hours:</strong></p><p>  Mon-Fri 9:00 AM - 8:00 PM</p>
