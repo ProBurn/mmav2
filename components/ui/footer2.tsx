@@ -22,9 +22,12 @@ const navigation = {
 
     ],
     legal: [
-      { name: 'Terms of service', href: '/terms-of-service' },
+      { name: 'Terms and conditions', href: '/terms-of-service' },
       { name: 'Privacy policy', href: '/privacy-policy' },
-      { name: 'Cancellation policy', href: '/cancellation-policy' },
+      { name: 'Cookie policy', href: '/cookie-policy' },
+      { name: 'Safeguarding', href: '/safeguarding' },
+      { name: 'Cancellation and refund policy', href: '/cancellation-policy' },
+      // { name: 'Equal opportunities', href: '/equal-opportunities-policy' },
     ],
     social: [
         {

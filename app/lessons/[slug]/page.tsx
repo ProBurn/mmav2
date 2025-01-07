@@ -28,6 +28,7 @@ import { CheckIcon, QuestionMarkCircleIcon, MusicalNoteIcon } from '@heroicons/r
 import { team, lessonPages, testimonials, lessonSpecificFaqs } from '@/data/data'
 import { motion } from 'framer-motion'
 import { notFound } from 'next/navigation'
+import { cn } from '@/lib/utils'
 
 
 
@@ -294,6 +295,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
     // const slug = 'drum-lesson'
 
     const product = lessonPages.find(product => product.slug === slug);
+   
 
 
     const teamMembers = product ? team.filter((member) => member.teaches?.includes(product.teaches)) : []
@@ -305,7 +307,8 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
 
     const [selectedDuration, setSelectedDuration] = useState(product ? product.variants[0] : null)
     const [price, setPrice] = useState(product ? product.variants[0].price : null)
-
+    const [selectedRadio, setSelectedRadio] = useState(0)
+    console.log("variant", selectedDuration)
     useEffect(() => {
         if (selectedDuration) {
             setPrice(selectedDuration.price)
@@ -436,18 +439,27 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                             >
                                                 {product.variants.map((variant, index) => (
                                                     <Radio
+
+
                                                         key={`size-${index}`}
                                                         as="div"
                                                         value={variant}
                                                         aria-label={variant.name}
                                                         aria-description={variant.description}
-                                                        className="group relative block cursor-pointer rounded-lg border border-gray-300 p-4 focus:outline-none data-[focus]:ring-2 data-[focus]:ring-accent-hover"
+                                                        onClick={() => setSelectedRadio(index)} 
+                                                        className={cn("group relative block cursor-pointer rounded-lg border border-gray-300 p-4 bg-white hover:bg-indigo-50",
+                                                            selectedRadio === index ? "ring-2 ring-indigo-500 outline-none bg-indigo-50" : "ring-0")}
+
+
                                                     >
-                                                        <p className="text-base font-medium text-gray-900">{variant.name}</p>
+                                                        <p className="text-base font-medium text-gray-900">{variant.name} - {variant.price}</p>
+                                                        {/* <p className="text-base font-medium text-gray-900">{variant.price}</p> */}
                                                         <p className="mt-1 text-sm text-gray-500">{variant.description}</p>
                                                         <div
                                                             aria-hidden="true"
-                                                            className="pointer-events-none absolute -inset-px rounded-lg border-2 border-transparent group-data-[focus]:border group-data-[checked]:border-accent-hover"
+                                                            className={classNames("absolute -inset-px rounded-lg border-2 border-transparent hover:border hover:border-indigo-500 ",
+                                                                selectedRadio === index ? " " : "")}
+
                                                         />
                                                     </Radio>
                                                 ))}
@@ -477,7 +489,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                                 aria-hidden="true"
                                                 className="mr-2 size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                                             />
-                                            <span className="text-gray-500 hover:text-gray-700">Lifetime Guarantee</span>
+                                            <span className="text-gray-500 hover:text-gray-700">All teachers are certified professionals</span>
                                         </a>
                                     </div>
                                 </form>

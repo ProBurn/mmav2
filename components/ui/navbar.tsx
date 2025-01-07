@@ -129,19 +129,20 @@ const Navbar = () => {
 
 
     return (
-        <div
+        <header className='navbar'
         >
             {/* <nav  className={`bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg w-full ${showNavbar ? "fixed" : "absolute"}`} id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}> */}
             <motion.nav
+
                 className="bg-slate-700 bg-opacity-50 p-4  backdrop-blur-lg w-full fixed"
                 id="navbar"
                 style={{ zIndex: 450 }}
                 ref={dropdownRef}
-                initial={{ y: -100, opacity: 0 }} // Hidden state
+                // initial={{ y: -100, opacity: 0 }} // Hidden state
                 animate={{ y: showNavbar ? 0 : -100, opacity: showNavbar ? 1 : 0 }} // Dynamic animation
                 transition={{
                     // type: "spring",    // Spring transition
-    // Adjust damping
+                    // Adjust damping
                     ease: "easeInOut", // Easing function
                 }}
             >
@@ -342,7 +343,7 @@ const Navbar = () => {
                 </AnimatePresence>
 
             </motion.nav>
-        </div>
+        </header>
     )
 }
 
