@@ -74,5 +74,10 @@ body {
 
   .grecaptcha-badge {
     visibility: hidden;
+    
   }
+
+  /* .Mui-error {
+    margin-left: 0 !important;
+  } */
 

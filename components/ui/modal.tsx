@@ -5,6 +5,10 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { CheckIcon } from '@heroicons/react/24/outline'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
+import ErrorIcon from '@mui/icons-material/Error';
+
 
 
 
@@ -22,6 +26,9 @@ import { ExclamationCircleIcon } from '@heroicons/react/16/solid'
 // import { cn } from '@/lib/utils'
 import MapComponent from '@/components/ui/map'
 import { contact } from '@/data/data'
+import Head from 'next/head';
+import { FormControl, FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
+import FormComponent from './formComponent';
 // import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
 // import ContactSection from '@/components/ui/contact-small'
 // import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
@@ -144,6 +151,13 @@ export default function Modal() {
 
     return (
         <div>
+            {/* <Head> */}
+            <style>{`
+        .Mui-error {
+          margin-left: 0!important;
+        }
+      `}</style>
+            {/* </Head> */}
             <button onClick={() => setOpen(true)} className="mt-20 mx-auto p-2 bg-blue-500 text-white">
                 Open Modal
             </button>
@@ -205,26 +219,83 @@ export default function Modal() {
                                                     <label htmlFor="last-name" className="block text-sm/6 font-semibold text-gray-900">
                                                         Last name
                                                     </label>
-                                                    <div className="mt-2.5 grid grid-cols-1">
+                                                    <div className="relative mt-2.5 grid grid-cols-1 items-center justify-center">
                                                         <Controller
-                                                        control={control}
-                                                        name="lastName"
-                                                        render={({ field: { onChange, onBlur, value } }) => (
+                                                            control={control}
+                                                            name="lastName"
+                                                            render={({ field: { onChange, onBlur, value } }) => (
 
-                                                            <TextField
-                                                                helperText={errors.lastName ? errors.lastName.message : ''}
+                                                                <TextField
+                                                                    helperText={errors.lastName ? errors.lastName.message : ''}
 
-                                                                error={!!errors.lastName}
-                                                                onChange={onChange}
-                                                                onBlur={onBlur}
-                                                                fullWidth
-                                                                label="email"
-                                                                variant='outlined'
-                                                                size="small"
-                                                                value={value}
+
+                                                                    error={!!errors.lastName}
+                                                                    onChange={onChange}
+                                                                    onBlur={onBlur}
+                                                                    fullWidth
+                                                                    label="email"
+                                                                    variant='outlined'
+                                                                    size="small"
+                                                                    value={value}
+                                                                    slotProps={{
+                                                                        input: {
+                                                                            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
+                                                                        },
+                                                                    }}
+                                                                />
+                                                            )}
+
+                                                        />
+
+                                                        <Controller
+                                                            control={control}
+                                                            
+                                                            name="lastName"
+                                                            render={({ field: { onChange, onBlur, value } }) => (
+                                                                <FormControl
+                                                                    // sx={{ m: 1, width: '25ch' }} 
+                                                                    fullWidth
+                                                                    size='small'
+                                                                    variant="outlined">
+                                                                    <InputLabel htmlFor="outlined-adornment-password">Last Name</InputLabel>
+                                                                    <OutlinedInput
+                                                                        error={!!errors.lastName}
+                                                                        onChange={onChange}
+                                                                        onBlur={onBlur}
+                                                                        value={value}
+
+                                                                        id="lastName"
+                                                                        type='text'
+                                                                        endAdornment={
+                                                                            <InputAdornment position="end">
+                                                                                <IconButton
+
+                                                                                    //   onClick={}
+                                                                                    //   onMouseDown={}
+                                                                                    //   onMouseUp={}
+                                                                                    edge="end"
+                                                                                >
+                                                                                    {errors.lastName && <ErrorIcon className='text-red-500' /> }
+                                                                                </IconButton>
+                                                                            </InputAdornment>
+                                                                        }
+                                                                        label="Password"
+                                                                    />
+                                                                    {errors.lastName && <FormHelperText error id="outlined-weight-helper-text">{errors.lastName.message}</FormHelperText>}
+
+                                                                </FormControl>
+                                                            )}
+                                                        />
+
+                                                        <FormComponent name='lastName' label='Email your mam' control={control} />
+
+                                                        {errors.lastName &&
+
+                                                            <ExclamationCircleIcon
+                                                                aria-hidden="true"
+                                                                className="absolute my-auto pointer-events-none col-start-1 row-start-1 mr-3 size-5 self-center justify-self-end text-red-500 sm:size-4 z-20"
                                                             />
-                                                        )}
- />
+                                                        }
                                                         <input
                                                             {...register('lastName')}
                                                             id="lastName"
@@ -236,16 +307,10 @@ export default function Modal() {
                                                             className={`col-start-1 row-start-1 block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600
                                             ${errors.lastName ? 'text-red-900 outline-red-300 placeholder:text-red-300 focus:outline-red-600' : 'text-gray-900 outline-gray-300 placeholder:text-gray-400 focus:outline-indigo-600'}`}
                                                         />
-                                                        {errors.lastName &&
 
-                                                            <ExclamationCircleIcon
-                                                                aria-hidden="true"
-                                                                className="pointer-events-none col-start-1 row-start-1 mr-3 size-5 self-center justify-self-end text-red-500 sm:size-4"
-                                                            />
-                                                        }
                                                         {/* {errors.firstName && (<p className='text-sm/6 text-red-500'>oh dear something went wrong</p>)} */}
                                                     </div>
-                                                    {errors.lastName && <p id="email-error" className="mt-2 text-sm text-red-600">
+                                                    {errors.lastName && <p id="email-error" className="mt-2 text-xs font-roboto text-red-600">
                                                         {errors.lastName.message}
                                                     </p>}
                                                 </div>

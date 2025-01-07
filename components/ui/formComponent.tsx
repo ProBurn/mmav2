@@ -1,0 +1,63 @@
+import React from 'react';
+import { Controller } from 'react-hook-form';
+import type { Control } from 'react-hook-form';
+import {
+    FormControl,
+    InputLabel,
+    OutlinedInput,
+    InputAdornment,
+    IconButton,
+    FormHelperText,
+} from '@mui/material';
+import ErrorIcon from '@mui/icons-material/Error';
+
+import type { ContactSchema } from '@/utils/schemas';
+
+interface FormComponentProps {
+    name: keyof ContactSchema;
+    label: string;
+    control: Control; // Replace `any` with the appropriate type from react-hook-form if available
+    errors?: Record<string, any>; // Adjust type as needed
+}
+
+const FormComponent: React.FC<FormComponentProps> = ({
+    name,
+    label,
+    control,
+    errors = {},
+}) => {
+    return (
+        <Controller
+            control={control}
+            name={name}
+            render={({ field: { onChange, onBlur, value } }) => (
+                <FormControl fullWidth size="small" variant="outlined">
+                    <InputLabel htmlFor={`outlined-adornment-${name}`}>{label}</InputLabel>
+                    <OutlinedInput
+                        error={!!errors[name]}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        value={value}
+                        id={name}
+                        type="text"
+                        endAdornment={
+                            <InputAdornment position="end">
+                                <IconButton edge="end">
+                                    {errors[name] && <ErrorIcon className="text-red-500" />}
+                                </IconButton>
+                            </InputAdornment>
+                        }
+                        label={label}
+                    />
+                    {errors[name] && (
+                        <FormHelperText error id={`outlined-${name}-helper-text`}>
+                            {errors[name]?.message}
+                        </FormHelperText>
+                    )}
+                </FormControl>
+            )}
+        />
+    );
+};
+
+export default FormComponent;
