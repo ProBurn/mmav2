@@ -1,19 +1,19 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useRef } from 'react'
+// import { Dialog, DialogPanel } from '@headlessui/react'
+// import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Faq from '@/components/ui/faq'
 import { team } from '@/data/data'
 import { useScroll, useTransform, motion } from 'framer-motion'
 import Image from 'next/image'
 
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Resources', href: '#' },
-  { name: 'Company', href: '#' },
-]
+// const navigation = [
+//   { name: 'Product', href: '#' },
+//   { name: 'Features', href: '#' },
+//   { name: 'Resources', href: '#' },
+//   { name: 'Company', href: '#' },
+// ]
 const stats = [
   { label: 'Hours of lessons taught since inception', value: '44 million' },
   { label: `Hairs on Chris Meek's head`, value: '119 trillion' },

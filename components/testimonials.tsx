@@ -14,7 +14,7 @@ import {
 import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import useMeasure, { type RectReadOnly } from 'react-use-measure'
 import { Container } from './container'
-import { Link } from './link'
+import Link from 'next/link'
 import { Heading } from './text'
 import { lessons } from '@/data/data'
 

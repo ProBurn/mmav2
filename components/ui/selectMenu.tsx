@@ -117,7 +117,7 @@ export default function SelectMenu({ register, name = '', onChange, className, e
     }
 
     return (
-        <Listbox value={selected} onChange={handleChange}>
+        <Listbox value={selected} onChange={handleChange} as="div">
             {/* <Label className="block text-sm/6 font-medium text-gray-900">Assigned to</Label> */}
             <div className={cn("relative", className)}>
                 <ListboxButton

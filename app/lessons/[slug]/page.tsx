@@ -31,7 +31,7 @@ import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Modal from '@/components/ui/modal'
 import { useNavbar } from '@/components/UIContext'
-import { set } from 'zod'
+// import { set } from 'zod'
 
 
 
@@ -524,7 +524,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                         </Tab> */}
                                     </TabList>
                                 </div>
-                                <TabPanels as={Fragment}>
+                                <TabPanels>
                                     <TabPanel className="-mb-10">
                                         <h3 className="sr-only">Teachers</h3>
 

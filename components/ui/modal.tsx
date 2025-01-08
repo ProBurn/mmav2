@@ -1,47 +1,28 @@
 'use client'
 
-import { useState, useEffect, useContext, Dispatch, SetStateAction } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { CheckIcon } from '@heroicons/react/24/outline'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import Visibility from '@mui/icons-material/Visibility';
+
+
+
+
+
 import ErrorIcon from '@mui/icons-material/Error';
-import EmailIcon from '@mui/icons-material/Email';
 
-
-
-
-import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 // import { ChevronDownIcon } from '@heroicons/react/16/solid'
 // import { Field, Label, Switch } from '@headlessui/react'
-import SelectMenu from '@/components/ui/selectMenu'
+
 import { Controller, useForm } from 'react-hook-form'
 // import Link from 'next/link'
 import { contactSchema, ContactSchema } from '@/utils/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { getRecaptchaToken } from '@/utils/reCaptcha'
-import { ExclamationCircleIcon } from '@heroicons/react/16/solid'
-// import { cn } from '@/lib/utils'
-import MapComponent from '@/components/ui/map'
-import { contact } from '@/data/data'
-import Head from 'next/head';
+
+
 import { FormControl, FormHelperText, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
-import FormComponent from './formComponent';
-
-import { useNavbar } from '@/components/UIContext'
-// import { HoverBorderGradient } from '@/components/ui/hover-border-gradient'
-// import ContactSection from '@/components/ui/contact-small'
-// import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 
-// declare global {
-//   interface Window {
-//     grecaptcha: any; // eslint-disable-line @typescript-eslint/no-explicit-any
-//   }
-// }
 
 
 export default function Modal({ lesson = '', openModalState, setOpenModalState, duration }: {
@@ -66,7 +47,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
 
 
     const {
-        register,
+        // register,
         control,
         handleSubmit,
         formState: { errors,
@@ -404,7 +385,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
                                                         control={control}
 
                                                         name="lesson"
-                                                        render={({ field: { onChange, onBlur, value } }) => (
+                                                        render={({ field: { onChange, onBlur } }) => (
                                                             <FormControl
                                                                 // sx={{ m: 1, width: '25ch' }} 
 

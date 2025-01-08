@@ -24,7 +24,7 @@ const Navbar = () => {
     // const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
-    const [openModal, setOpenModal] = useNavbar();
+    const [openModal] = useNavbar();
     useEffect(() => {
         console.log('navbar component:', openModal);
     },[openModal])
