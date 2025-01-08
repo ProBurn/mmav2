@@ -16,7 +16,7 @@ import type { ContactSchema } from '@/utils/schemas';
 interface FormComponentProps {
     name: keyof ContactSchema;
     label: string;
-    control: Control; // Replace `any` with the appropriate type from react-hook-form if available
+    control: any; // Replace `any` with the appropriate type from react-hook-form if available
     errors?: Record<string, any>; // Adjust type as needed
 }
 

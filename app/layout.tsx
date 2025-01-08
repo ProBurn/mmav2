@@ -8,7 +8,11 @@ import Navbar from "@/components/ui/navbar";
 import Footer2 from "@/components/ui/footer2";
 
 import { Roboto, Poppins } from 'next/font/google'
- 
+import React from "react";
+import { NavbarProvider } from "@/components/UIContext";
+
+
+
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   style: ['normal', 'italic'],
@@ -44,21 +48,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={` ${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         <Script
-            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-            strategy="beforeInteractive" // You can also use "afterInteractive" if you prefer
-          />
-          <LocomotiveScrollWrapper />
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="beforeInteractive" // You can also use "afterInteractive" if you prefer
+        />
+        <LocomotiveScrollWrapper />
+        <NavbarProvider>
+
           <Navbar />
-        {children}
-        {/* <Footer /> */}
-        <Footer2 />
-        
+          {children}
+          {/* <Footer /> */}
+          <Footer2 />
+        </NavbarProvider>
+
       </body>
     </html>
   );

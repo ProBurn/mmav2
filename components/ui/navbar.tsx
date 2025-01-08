@@ -3,41 +3,97 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
 import Link from 'next/link';
 import ConditionalLink from '@/components/conditionalLink';
+import { useNavbar } from '../UIContext';
 // import { lessonPages } from '@/data/data';
 // import { useRouter } from "next/navigation";
 // import { Button } from '@/components/ui/moving-border';
 // import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 
 
+
+
+
+
+
+
+
+
+
+
 const Navbar = () => {
     // const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
 
+    const [openModal, setOpenModal] = useNavbar();
     useEffect(() => {
-        const htmlElement = document.documentElement;
-        const targetElement = document.getElementById("navbar");
+        console.log('navbar component:', openModal);
+    },[openModal])
 
-        if (!targetElement) return;
+    // useEffect(() => {
+    //     const htmlElement = document.documentElement;
+    //     const targetElement = document.getElementById("navbar");
 
-        const updatePadding = () => {
-            const computedStyle = window.getComputedStyle(htmlElement);
-            targetElement.style.paddingRight = computedStyle.paddingRight;
+    //     if (!targetElement) return;
+
+    //     const updatePadding = () => {
+    //         const computedStyle = window.getComputedStyle(htmlElement);
+    //         targetElement.style.paddingRight = computedStyle.paddingRight;
+    //     };
+
+    //     // Initial update
+    //     updatePadding();
+
+    //     const observer = new MutationObserver(() => {
+    //         updatePadding();
+    //     });
+
+    //     observer.observe(htmlElement, {
+    //         attributes: true,
+    //         attributeFilter: ["style"], // Only observe changes to the style attribute
+    //     });
+
+    //     return () => {
+    //         observer.disconnect(); // Clean up on unmount
+    //     };
+    // }, []);
+
+    useEffect(() => {
+        let initialScrollbarWidth = 0;
+
+        const beforeAdjustment = (doc: Document) => {
+            const htmlElement = doc.documentElement;
+            const viewport = doc.defaultView || window;
+
+            // Calculate the initial scrollbar width
+            initialScrollbarWidth = Math.max(0, viewport.innerWidth - htmlElement.clientWidth);
         };
 
-        // Initial update
-        updatePadding();
+        const afterAdjustment = (doc: Document) => {
+            const htmlElement = doc.documentElement;
 
-        const observer = new MutationObserver(() => {
-            updatePadding();
-        });
+            // Calculate the scrollbar width difference
+            const currentScrollbarWidth = Math.max(0, htmlElement.clientWidth - htmlElement.offsetWidth);
+            const paddingAdjustment = Math.max(0, initialScrollbarWidth - currentScrollbarWidth);
 
-        observer.observe(htmlElement, {
-            attributes: true,
-            attributeFilter: ["style"], // Only observe changes to the style attribute
-        });
+            // Adjust the padding-right of .navbar
+            const navbar = document.querySelector('.navbar') as HTMLElement;
+            if (navbar) {
+                navbar.style.paddingRight = `${paddingAdjustment}px`;
+            }
+        };
 
+        // Initial adjustments before setting overflow: hidden
+        beforeAdjustment(document);
+
+        // Simulate applying overflow: hidden to the html element
+        document.documentElement.style.overflow = 'hidden';
+
+        // Apply the adjustment after overflow: hidden is set
+        afterAdjustment(document);
+
+        // Clean up if necessary (e.g., resetting overflow)
         return () => {
-            observer.disconnect(); // Clean up on unmount
+            document.documentElement.style.overflow = ''; // Reset overflow style
         };
     }, []);
 
@@ -139,7 +195,7 @@ const Navbar = () => {
                 style={{ zIndex: 450 }}
                 ref={dropdownRef}
                 // initial={{ y: -100, opacity: 0 }} // Hidden state
-                animate={{ y: showNavbar ? 0 : -100, opacity: showNavbar ? 1 : 0 }} // Dynamic animation
+                animate={{ y: showNavbar && !openModal ? 0 : -100, opacity: showNavbar && !openModal ? 1 : 0 }} // Dynamic animation
                 transition={{
                     // type: "spring",    // Spring transition
                     // Adjust damping

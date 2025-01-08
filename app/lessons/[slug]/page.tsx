@@ -29,6 +29,9 @@ import { team, lessonPages, testimonials, lessonSpecificFaqs } from '@/data/data
 import { motion } from 'framer-motion'
 import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import Modal from '@/components/ui/modal'
+import { useNavbar } from '@/components/UIContext'
+import { set } from 'zod'
 
 
 
@@ -287,6 +290,8 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
 
 
     const params = use(paramsPromise);
+    // const [openModal, setOpenModal] = useNavbar();
+    const [openModal, setOpenModal] = useNavbar();
 
     // Access params.slug safely
     const slug = params.slug;
@@ -327,6 +332,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
 
             <main>
                 {/* Product */}
+                <Modal lesson={product.name} duration={selectedDuration?.name} openModalState={openModal} setOpenModalState={setOpenModal}/>
                 <div className="bg-white">
                     <div className="mx-auto max-w-2xl px-4  pt-16 sm:px-6 sm:pb-32 sm:pt-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         {/* Product details */}
@@ -477,11 +483,16 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                     </div>
                                     <div className="mt-10">
                                         <button
-                                            type="submit"
+                                            // type="submit"
+                                            type="button"
+                                            onClick={()=>{setOpenModal(true)}}
                                             className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                                         >
                                             Contact to book
                                         </button>
+                                        
+
+                                        
                                     </div>
                                     <div className="mt-6 text-center">
                                         <a href="#" className="group inline-flex text-base font-medium">
