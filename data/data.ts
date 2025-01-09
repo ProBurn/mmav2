@@ -240,7 +240,7 @@ export const team: {
         'https://s.abcnews.com/images/GMA/240530_gma_digital_samuelljackson_hpMain_4x5_608.jpg',
     },
     {
-      name: 'Jono',
+      name: 'Bert',
       role: 'Guitar Teacher',
       imageUrl:
         'https://d3i6fh83elv35t.cloudfront.net/static/2024/03/2017-05-02T120000Z_842525135_HP1ED52032BRW_RTRMADP_3_FASHION-METGALA-1024x677.jpg',
