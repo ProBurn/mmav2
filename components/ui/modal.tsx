@@ -184,7 +184,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
                     <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                         <DialogPanel
                             transition
-                            className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+                            className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 my-auto text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-sm sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
                         >
                             <div>
                                 {/* <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100">
@@ -217,7 +217,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
                                                                     onBlur={onBlur}
                                                                     value={value}
 
-                                                                    id="lastName"
+                                                                    id="firstName"
                                                                     type='text'
                                                                     endAdornment={
                                                                         <InputAdornment position="end">
@@ -232,7 +232,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
                                                                             </IconButton>
                                                                         </InputAdornment>
                                                                     }
-                                                                    label="Password"
+                                                                    label="First Name"
                                                                 />
                                                                 {errors.firstName ? <FormHelperText sx={{ minHeight: '19.92px', marginTop: '4px' }} error id="outlined-weight-helper-text">{errors.firstName.message}</FormHelperText> : <div className='min-h-[19.92px] mt-1'></div>}
 
@@ -274,7 +274,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
                                                                             </IconButton>
                                                                         </InputAdornment>
                                                                     }
-                                                                    label="Password"
+                                                                    label="Last Name"
                                                                 />
                                                                 {errors.lastName ? <FormHelperText sx={{ minHeight: '19.92px', marginTop: '4px' }} error id="outlined-weight-helper-text">{errors.lastName.message}</FormHelperText> : <div className='min-h-[19.92px] mt-1'></div>}
 
