@@ -192,7 +192,7 @@ export default function Modal({ lesson = '', openModalState, setOpenModalState, 
               </div> */}
                                 <div className="mt-0 text-center sm:mt-0">
                                     <DialogTitle as="h3" className="mb-2 text-lg font-semibold text-gray-900">
-                                        Equire about {lesson}s
+                                        Enquire about {lesson}s
                                     </DialogTitle>
 
                                     <form action="#" method="POST" onSubmit={handleSubmit(onSubmit, onError)} className="px-6 pt-2 h-full w-full">

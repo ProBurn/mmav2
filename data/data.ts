@@ -383,12 +383,13 @@ export const team: {
     sections: [
       {
         heading: "What We Offer",
-        description: "At Middlesbrough Music Academy, we offer a comprehensive range of drum lessons designed to cater to every drummer's needs. Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, helping you become the drummer you've always wanted to be.",
+        description: "At Middlesbrough Music Academy, our guitar lessons cater to players of all skill levels, whether you're picking up the guitar for the first time or aiming to master advanced techniques. Our experienced instructors personalize each lesson to help you progress at your own pace, ensuring that you achieve your musical goals and develop a deep understanding of guitar playing.",
         content: [
-          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning to read music, mastering rudiments, or exploring new grooves." },
-          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons designed to help you succeed." }
+          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning basic chords, mastering scales, or diving into different guitar styles like rock, blues, or classical." },
+          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons that will help you succeed and build a solid foundation in music theory and guitar technique." }
         ]
       },
+      
       {
         heading: "Lesson Duration & Flexibility",
         content: [
@@ -435,12 +436,13 @@ export const team: {
     sections: [
       {
         heading: "What We Offer",
-        description: "At Middlesbrough Music Academy, we offer a comprehensive range of drum lessons designed to cater to every drummer's needs. Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, helping you become the drummer you've always wanted to be.",
+        description: "Our piano lessons at Middlesbrough Music Academy are designed to suit all ages and skill levels. Whether you're learning to play classical pieces or contemporary songs, our instructors will help you develop your piano technique, musicality, and understanding of music theory, all at a pace that suits you.",
         content: [
-          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning to read music, mastering rudiments, or exploring new grooves." },
-          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons designed to help you succeed." }
+          { label: "Personalized Lessons:", text: "Tailored to your goals, whether it's learning to read music, mastering finger technique, or exploring different musical genres from classical to pop." },
+          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons focused on building strong foundational skills in piano performance and theory." }
         ]
       },
+      
       {
         heading: "Lesson Duration & Flexibility",
         content: [
@@ -487,12 +489,13 @@ export const team: {
     sections: [
       {
         heading: "What We Offer",
-        description: "At Middlesbrough Music Academy, we offer a comprehensive range of drum lessons designed to cater to every drummer's needs. Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, helping you become the drummer you've always wanted to be.",
+        description: "At Middlesbrough Music Academy, we offer singing lessons for all vocalists, from beginners to advanced singers. Whether you're looking to improve your vocal range, control, or technique, our expert vocal coaches will guide you in a supportive environment to help you find your unique voice and excel in different genres of music.",
         content: [
-          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning to read music, mastering rudiments, or exploring new grooves." },
-          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons designed to help you succeed." }
+          { label: "Personalized Lessons:", text: "Tailored to your vocal goals, from basic warm-up exercises and pitch control to advanced techniques like breath support and vocal agility." },
+          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with vocal lessons that incorporate music theory, sight-singing, and performance skills." }
         ]
       },
+      
       {
         heading: "Lesson Duration & Flexibility",
         content: [
@@ -539,12 +542,12 @@ export const team: {
     sections: [
       {
         heading: "What We Offer",
-        description: "At Middlesbrough Music Academy, we offer a comprehensive range of drum lessons designed to cater to every drummer's needs. Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, helping you become the drummer you've always wanted to be.",
+        description: "At Middlesbrough Music Academy, we provide bass lessons that cater to all levels, from beginners to advanced players. Whether you're learning to play your favorite bass lines or looking to improve your technique and music theory knowledge, our instructors will help you grow as a bassist and deepen your understanding of rhythm and groove.",
         content: [
-          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning to read music, mastering rudiments, or exploring new grooves." },
-          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons designed to help you succeed." }
+          { label: "Personalized Lessons:", text: "Focused on your individual goals, from learning basic finger positioning to advanced slap bass techniques or improvisation skills." },
+          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with lessons designed to guide you through the essentials of bass guitar and music theory." }
         ]
-      },
+      },      
       {
         heading: "Lesson Duration & Flexibility",
         content: [
@@ -591,12 +594,12 @@ export const team: {
     sections: [
       {
         heading: "What We Offer",
-        description: "At Middlesbrough Music Academy, we offer a comprehensive range of drum lessons designed to cater to every drummer's needs. Whether you're just starting your musical journey or looking to refine your skills, our lessons are personalized to help you achieve your goals. Our experienced instructors ensure that every lesson is engaging and tailored specifically to your pace and aspirations, helping you become the drummer you've always wanted to be.",
+        description: "Our ukulele lessons at Middlesbrough Music Academy are designed for players of all skill levels, whether you're just starting or looking to advance your techniques. We cover everything from basic chords and strumming patterns to more complex fingerpicking and songwriting techniques, ensuring that you can play your favorite tunes with ease.",
         content: [
-          { label: "Personalized Lessons:", text: "Tailored to your individual goals, whether it's learning to read music, mastering rudiments, or exploring new grooves." },
-          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons designed to help you succeed." }
+          { label: "Personalized Lessons:", text: "Tailored to your learning goals, whether it's mastering basic chords, learning to accompany songs, or exploring more advanced techniques like fingerpicking." },
+          { label: "Grade Tuition:", text: "Prepare for music exams from grades 1-8 or GCSE Music with structured lessons that combine technical skills with an understanding of music theory." }
         ]
-      },
+      },      
       {
         heading: "Lesson Duration & Flexibility",
         content: [
