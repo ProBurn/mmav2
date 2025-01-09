@@ -1,0 +1,117 @@
+diff --git a/dist/hooks/document-overflow/adjust-scrollbar-padding.js b/dist/hooks/document-overflow/adjust-scrollbar-padding.js
+index df00981572723d14b58e717375e6bf7f11645880..d8b75895d24551c24fc7f2754245f98b37b0c2e4 100644
+--- a/dist/hooks/document-overflow/adjust-scrollbar-padding.js
++++ b/dist/hooks/document-overflow/adjust-scrollbar-padding.js
+@@ -1 +1,26 @@
+-function d(){let r;return{before({doc:e}){var l;let o=e.documentElement,t=(l=e.defaultView)!=null?l:window;r=Math.max(0,t.innerWidth-o.clientWidth)},after({doc:e,d:o}){let t=e.documentElement,l=Math.max(0,t.clientWidth-t.offsetWidth),n=Math.max(0,r-l);o.style(t,"paddingRight",`${n}px`)}}}export{d as adjustScrollbarPadding};
++function d() {
++    let r;
++    return {
++        before({
++            doc: e
++        }) {
++            var l;
++            let o = e.documentElement,
++                t = (l = e.defaultView) != null ? l : window;
++            r = Math.max(0, t.innerWidth - o.clientWidth)
++        },
++        after({
++            doc: e,
++            d: o
++        }) {
++            let t = e.documentElement,
++                l = Math.max(0, t.clientWidth - t.offsetWidth),
++                n = Math.max(0, r - l);
++            o.style(t, "paddingRight", `${n}px`)
++            document.documentElement.style.setProperty('--scrollbar-padding', `${n}px`);
++        }
++    }
++}
++export {
++    d as adjustScrollbarPadding
++};
+\ No newline at end of file
+diff --git a/dist/hooks/document-overflow/overflow-store.js b/dist/hooks/document-overflow/overflow-store.js
+index f5392b2dab610f3f55584938ed44b4f1bbdecc9b..a6027bb54c38c8f7817bed4f9906a93fc7832030 100644
+--- a/dist/hooks/document-overflow/overflow-store.js
++++ b/dist/hooks/document-overflow/overflow-store.js
+@@ -1 +1,78 @@
+-import{disposables as s}from'../../utils/disposables.js';import{createStore as i}from'../../utils/store.js';import{adjustScrollbarPadding as l}from'./adjust-scrollbar-padding.js';import{handleIOSLocking as d}from'./handle-ios-locking.js';import{preventScroll as p}from'./prevent-scroll.js';function m(e){let n={};for(let t of e)Object.assign(n,t(n));return n}let a=i(()=>new Map,{PUSH(e,n){var o;let t=(o=this.get(e))!=null?o:{doc:e,count:0,d:s(),meta:new Set};return t.count++,t.meta.add(n),this.set(e,t),this},POP(e,n){let t=this.get(e);return t&&(t.count--,t.meta.delete(n)),this},SCROLL_PREVENT({doc:e,d:n,meta:t}){let o={doc:e,d:n,meta:m(t)},c=[d(),l(),p()];c.forEach(({before:r})=>r==null?void 0:r(o)),c.forEach(({after:r})=>r==null?void 0:r(o))},SCROLL_ALLOW({d:e}){e.dispose()},TEARDOWN({doc:e}){this.delete(e)}});a.subscribe(()=>{let e=a.getSnapshot(),n=new Map;for(let[t]of e)n.set(t,t.documentElement.style.overflow);for(let t of e.values()){let o=n.get(t.doc)==="hidden",c=t.count!==0;(c&&!o||!c&&o)&&a.dispatch(t.count>0?"SCROLL_PREVENT":"SCROLL_ALLOW",t),t.count===0&&a.dispatch("TEARDOWN",t)}});export{a as overflows};
++import {
++    disposables as s
++} from '../../utils/disposables.js';
++import {
++    createStore as i
++} from '../../utils/store.js';
++import {
++    adjustScrollbarPadding as l
++} from './adjust-scrollbar-padding.js';
++import {
++    handleIOSLocking as d
++} from './handle-ios-locking.js';
++import {
++    preventScroll as p
++} from './prevent-scroll.js';
++
++function m(e) {
++    let n = {};
++    for (let t of e) Object.assign(n, t(n));
++    return n
++}
++let a = i(() => new Map, {
++    PUSH(e, n) {
++        var o;
++        let t = (o = this.get(e)) != null ? o : {
++            doc: e,
++            count: 0,
++            d: s(),
++            meta: new Set
++        };
++        return t.count++, t.meta.add(n), this.set(e, t), this
++    },
++    POP(e, n) {
++        let t = this.get(e);
++        return t && (t.count--, t.meta.delete(n)), this
++    },
++    SCROLL_PREVENT({
++        doc: e,
++        d: n,
++        meta: t
++    }) {
++        let o = {
++                doc: e,
++                d: n,
++                meta: m(t)
++            },
++            c = [d(), l(), p()];
++        c.forEach(({
++            before: r
++        }) => r == null ? void 0 : r(o)), c.forEach(({
++            after: r
++        }) => r == null ? void 0 : r(o))
++    },
++    SCROLL_ALLOW({
++        d: e
++    }) {
++        e.dispose()
++        document.documentElement.style.setProperty('--scrollbar-padding', `0px`);
++    },
++    TEARDOWN({
++        doc: e
++    }) {
++        this.delete(e)
++    }
++});
++a.subscribe(() => {
++    let e = a.getSnapshot(),
++        n = new Map;
++    for (let [t] of e) n.set(t, t.documentElement.style.overflow);
++    for (let t of e.values()) {
++        let o = n.get(t.doc) === "hidden",
++            c = t.count !== 0;
++        (c && !o || !c && o) && a.dispatch(t.count > 0 ? "SCROLL_PREVENT" : "SCROLL_ALLOW", t), t.count === 0 && a.dispatch("TEARDOWN", t)
++    }
++});
++export {
++    a as overflows
++};

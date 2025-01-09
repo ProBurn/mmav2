@@ -1,6 +1,8 @@
 "use client"
 import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction, useMemo } from 'react';
 
+
+
 // Define the context type
 type NavbarContextType = [boolean, Dispatch<SetStateAction<boolean>>];
 

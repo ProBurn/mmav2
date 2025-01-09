@@ -57,45 +57,45 @@ const Navbar = () => {
     //     };
     // }, []);
 
-    useEffect(() => {
-        let initialScrollbarWidth = 0;
+    // useEffect(() => {
+    //     let initialScrollbarWidth = 0;
 
-        const beforeAdjustment = (doc: Document) => {
-            const htmlElement = doc.documentElement;
-            const viewport = doc.defaultView || window;
+    //     const beforeAdjustment = (doc: Document) => {
+    //         const htmlElement = doc.documentElement;
+    //         const viewport = doc.defaultView || window;
 
-            // Calculate the initial scrollbar width
-            initialScrollbarWidth = Math.max(0, viewport.innerWidth - htmlElement.clientWidth);
-        };
+    //         // Calculate the initial scrollbar width
+    //         initialScrollbarWidth = Math.max(0, viewport.innerWidth - htmlElement.clientWidth);
+    //     };
 
-        const afterAdjustment = (doc: Document) => {
-            const htmlElement = doc.documentElement;
+    //     const afterAdjustment = (doc: Document) => {
+    //         const htmlElement = doc.documentElement;
 
-            // Calculate the scrollbar width difference
-            const currentScrollbarWidth = Math.max(0, htmlElement.clientWidth - htmlElement.offsetWidth);
-            const paddingAdjustment = Math.max(0, initialScrollbarWidth - currentScrollbarWidth);
+    //         // Calculate the scrollbar width difference
+    //         const currentScrollbarWidth = Math.max(0, htmlElement.clientWidth - htmlElement.offsetWidth);
+    //         const paddingAdjustment = Math.max(0, initialScrollbarWidth - currentScrollbarWidth);
 
-            // Adjust the padding-right of .navbar
-            const navbar = document.querySelector('.navbar') as HTMLElement;
-            if (navbar) {
-                navbar.style.paddingRight = `${paddingAdjustment}px`;
-            }
-        };
+    //         // Adjust the padding-right of .navbar
+    //         const navbar = document.querySelector('.navbar') as HTMLElement;
+    //         if (navbar) {
+    //             navbar.style.paddingRight = `${paddingAdjustment}px`;
+    //         }
+    //     };
 
-        // Initial adjustments before setting overflow: hidden
-        beforeAdjustment(document);
+    //     // Initial adjustments before setting overflow: hidden
+    //     beforeAdjustment(document);
 
-        // Simulate applying overflow: hidden to the html element
-        document.documentElement.style.overflow = 'hidden';
+    //     // Simulate applying overflow: hidden to the html element
+    //     document.documentElement.style.overflow = 'hidden';
 
-        // Apply the adjustment after overflow: hidden is set
-        afterAdjustment(document);
+    //     // Apply the adjustment after overflow: hidden is set
+    //     afterAdjustment(document);
 
-        // Clean up if necessary (e.g., resetting overflow)
-        return () => {
-            document.documentElement.style.overflow = ''; // Reset overflow style
-        };
-    }, []);
+    //     // Clean up if necessary (e.g., resetting overflow)
+    //     return () => {
+    //         document.documentElement.style.overflow = ''; // Reset overflow style
+    //     };
+    // }, []);
 
     interface MenuItem {
         id: number;
@@ -183,14 +183,18 @@ const Navbar = () => {
         console.log(showNavbar)
     }, [showNavbar])
 
+    // useEffect(() => {
+    //     // document.documentElement.style.setProperty('--yourmam', `200px`);
+    // }, []);
+
 
     return (
-        <header className='navbar'
+        <header className='navbar '
         >
             {/* <nav  className={`bg-purple-700 p-4 bg-opacity-50 backdrop-blur-lg w-full ${showNavbar ? "fixed" : "absolute"}`} id="navbar" style={{ zIndex: 450 }} ref={dropdownRef}> */}
             <motion.nav
 
-                className="bg-slate-700 bg-opacity-50 p-4  backdrop-blur-lg w-full fixed"
+                className="bg-slate-700 bg-opacity-50 p-4  backdrop-blur-lg w-full fixed pr-[var(--scrollbar-padding)]"
                 id="navbar"
                 style={{ zIndex: 450 }}
                 ref={dropdownRef}
