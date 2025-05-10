@@ -1,4 +1,5 @@
 "use client"
+import AnimateIn from "@/components/AnimateIn";
 import Hero2 from "@/components/Hero2";
 import { Testimonials } from "@/components/testimonials";
 import Testimonials2 from "@/components/testimonials2";
@@ -8,17 +9,20 @@ import ContactSection from "@/components/ui/contact-small";
 
 export default function Home() {
 
-// const words = [
-//     "Drums?",
-//     "Piano?",
-//     "Guitar?",
-//     "Ukulele?",
-//     "Singing?",
-//     "Bass?",
-// ]
+  // const words = [
+  //     "Drums?",
+  //     "Piano?",
+  //     "Guitar?",
+  //     "Ukulele?",
+  //     "Singing?",
+  //     "Bass?",
+  // ]
   return (
     <div>
-      <Hero2 />
+      <AnimateIn>
+
+        <Hero2 />
+      </AnimateIn>
       {/* <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <h2 className="max-w-2xl text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
@@ -42,7 +46,7 @@ export default function Home() {
       </div>
     </div> */}
 
-    {/* <div className="bg-gray-50">
+      {/* <div className="bg-gray-50">
       <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
@@ -73,10 +77,17 @@ export default function Home() {
         </div>
       </div>
     </div> */}
+      <AnimateIn>
+        <Testimonials />
+      </AnimateIn>
 
-      <Testimonials />
-      <Testimonials2 />
-      <ContactSection />
+      <AnimateIn>
+        <Testimonials2 />
+      </AnimateIn>
+
+      <AnimateIn>
+        <ContactSection />
+      </AnimateIn>
     </div>
   );
 }
