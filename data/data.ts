@@ -4,7 +4,7 @@ export const lessons = [
   {
     img: '/content/drum.jpg',
     href:'/lessons/drum-lesson',
-    name: 'Drum Lesson',
+    name: 'Drum Lessons',
     title: 'learn more ->',
     quote:
       'Thanks to Radiant, we’re finding new leads that we never would have found with legal methods.',
@@ -12,7 +12,7 @@ export const lessons = [
   {
     img: '/content/bass (2).jpg',
     href:'/lessons/bass-lesson',
-    name: 'Bass Lesson',
+    name: 'Bass Lessons',
     title: 'Learn more ->',
     quote:
       'Radiant made undercutting all of our competitors an absolute breeze.',
@@ -20,7 +20,7 @@ export const lessons = [
   {
     img: '/content/piano.jpg',
     href:'/lessons/piano-lesson',
-    name: 'Piano Lesson',
+    name: 'Piano Lessons',
     title: 'Head of GTM, Pocket',
     quote:
       'We closed a deal in literally a few minutes because we knew their exact budget.',
@@ -28,7 +28,7 @@ export const lessons = [
   {
     img: '/content/singing.jpg',
     href:'/lessons/singing-lesson',
-    name: 'Singing Lesson',
+    name: 'Singing Lessons',
     title: 'CSO, Planeteria',
     quote:
       'We’ve managed to put two of our main competitors out of business in 6 months.',
@@ -36,14 +36,14 @@ export const lessons = [
   {
     img: '/content/ukulele.jpg',
     href:'/lessons/ukulele-lesson',
-    name: 'Ukulele Lesson',
+    name: 'Ukulele Lessons',
     title: 'VP of Sales, Detax',
     quote: 'I was able to replace 80% of my team with RadiantAI bots.',
   },
   {
     img: '/content/guitar.jpg',
     href:'/lessons/guitar-lesson',
-    name: 'Guitar Lesson',
+    name: 'Guitar Lessons',
     title: 'Account Manager, Commit',
     quote:
       'I’ve smashed all my targets without having to speak to a lead in months.',
@@ -93,91 +93,91 @@ export const testimonials: Testimonial[] = [
     name: "Ben K.",
     lessonType: "guitar"
   },
-  {
-    quote: "I’ve been a piano student here for two years and the improvement in my ability to read music and play fluently is unreal. The lessons are structured and easy to follow.",
-    name: "Lily H.",
-    lessonType: "piano"
-  },
-  {
-    quote: "The ukulele lessons are perfect for beginners like me. I never thought I’d be able to play an instrument, but now I’m strumming away with confidence!",
-    name: "Megan F.",
-    lessonType: "ukulele"
-  },
-  {
-    quote: "The singing lessons have not only improved my vocal ability but also helped me develop better breath control and stage presence. I now perform with so much more confidence.",
-    name: "Oliver B.",
-    lessonType: "singing"
-  },
-  {
-    quote: "The bass lessons here are the best! I’ve always struggled with timing, but now I’ve got a solid groove. I really appreciate how patient and thorough the teachers are.",
-    name: "David T.",
-    lessonType: "bass"
-  },
-  {
-    quote: "I came to the academy to learn drums and was amazed at how quickly I progressed. The teacher’s insights into rhythm and timing helped me become a much more confident drummer.",
-    name: "Sarah W.",
-    lessonType: "drums"
-  },
-  {
-    quote: "Learning guitar at Middlesbrough Music Academy has been such a rewarding experience. The personalized approach to teaching made learning fun and I’ve made huge strides.",
-    name: "Alex G.",
-    lessonType: "guitar"
-  },
-  {
-    quote: "I started piano lessons as a complete beginner, and now I’m able to play several pieces. The teachers here are knowledgeable and friendly, which makes learning a lot more enjoyable.",
-    name: "Isla P.",
-    lessonType: "piano"
-  },
-  {
-    quote: "I have been playing bass for several years, but the lessons at this academy have really deepened my understanding of the instrument and musical theory. It’s been such an enriching experience.",
-    name: "James A.",
-    lessonType: "bass"
-  },
-  {
-    quote: "I’ve learned so much from the singing lessons here. The teacher helped me identify and work on my weaknesses, and I can feel my voice becoming stronger every week.",
-    name: "Katie L.",
-    lessonType: "singing"
-  },
-  {
-    quote: "The drum lessons are outstanding. The teacher’s attention to detail and focus on technique has helped me improve my coordination and overall musicality.",
-    name: "Daniel P.",
-    lessonType: "drums"
-  },
-  {
-    quote: "The ukulele lessons were a lot of fun and taught me how to play songs I love. The teacher was very patient and supportive, and I felt really motivated to keep improving.",
-    name: "Charlotte R.",
-    lessonType: "ukulele"
-  },
-  {
-    quote: "I’ve tried a few different music schools, but the atmosphere at Middlesbrough Music Academy is special. The teachers are talented and passionate, and they really care about your progress.",
-    name: "Steve M.",
-    lessonType: "guitar"
-  },
-  {
-    quote: "The singing lessons helped me overcome my fear of performing in front of others. I feel much more confident on stage, and my vocal range has improved dramatically.",
-    name: "Sophie D.",
-    lessonType: "singing"
-  },
-  {
-    quote: "I’ve been learning bass for six months, and the progress I’ve made is beyond what I imagined. The lessons are always engaging, and the teacher makes complex techniques easy to understand.",
-    name: "Ethan J.",
-    lessonType: "bass"
-  },
-  {
-    quote: "The ukulele lessons are so much fun! I love how the lessons are structured and how we get to play new songs each week. I’m already playing along with my friends!",
-    name: "Nina K.",
-    lessonType: "ukulele"
-  },
-  {
-    quote: "After taking guitar lessons for a few months, I can play many of my favorite songs! The teacher takes the time to really explain each step, which has helped me build a strong foundation.",
-    name: "Oliver S.",
-    lessonType: "guitar"
-  },
-  {
-    quote: "The piano lessons at Middlesbrough Music Academy have really exceeded my expectations. I’ve gained so much musical knowledge, and I’m constantly amazed at my progress.",
-    name: "Isabella N.",
-    lessonType: "piano"
-  }
+  // {
+  //   quote: "I’ve been a piano student here for two years and the improvement in my ability to read music and play fluently is unreal. The lessons are structured and easy to follow.",
+  //   name: "Lily H.",
+  //   lessonType: "piano"
+  // },
+  // {
+  //   quote: "The ukulele lessons are perfect for beginners like me. I never thought I’d be able to play an instrument, but now I’m strumming away with confidence!",
+  //   name: "Megan F.",
+  //   lessonType: "ukulele"
+  // },
+  // {
+  //   quote: "The singing lessons have not only improved my vocal ability but also helped me develop better breath control and stage presence. I now perform with so much more confidence.",
+  //   name: "Oliver B.",
+  //   lessonType: "singing"
+  // },
+  // {
+  //   quote: "The bass lessons here are the best! I’ve always struggled with timing, but now I’ve got a solid groove. I really appreciate how patient and thorough the teachers are.",
+  //   name: "David T.",
+  //   lessonType: "bass"
+  // },
+  // {
+  //   quote: "I came to the academy to learn drums and was amazed at how quickly I progressed. The teacher’s insights into rhythm and timing helped me become a much more confident drummer.",
+  //   name: "Sarah W.",
+  //   lessonType: "drums"
+  // },
+  // {
+  //   quote: "Learning guitar at Middlesbrough Music Academy has been such a rewarding experience. The personalized approach to teaching made learning fun and I’ve made huge strides.",
+  //   name: "Alex G.",
+  //   lessonType: "guitar"
+  // },
+  // {
+  //   quote: "I started piano lessons as a complete beginner, and now I’m able to play several pieces. The teachers here are knowledgeable and friendly, which makes learning a lot more enjoyable.",
+  //   name: "Isla P.",
+  //   lessonType: "piano"
+  // },
+  // {
+  //   quote: "I have been playing bass for several years, but the lessons at this academy have really deepened my understanding of the instrument and musical theory. It’s been such an enriching experience.",
+  //   name: "James A.",
+  //   lessonType: "bass"
+  // },
+  // {
+  //   quote: "I’ve learned so much from the singing lessons here. The teacher helped me identify and work on my weaknesses, and I can feel my voice becoming stronger every week.",
+  //   name: "Katie L.",
+  //   lessonType: "singing"
+  // },
+  // {
+  //   quote: "The drum lessons are outstanding. The teacher’s attention to detail and focus on technique has helped me improve my coordination and overall musicality.",
+  //   name: "Daniel P.",
+  //   lessonType: "drums"
+  // },
+  // {
+  //   quote: "The ukulele lessons were a lot of fun and taught me how to play songs I love. The teacher was very patient and supportive, and I felt really motivated to keep improving.",
+  //   name: "Charlotte R.",
+  //   lessonType: "ukulele"
+  // },
+  // {
+  //   quote: "I’ve tried a few different music schools, but the atmosphere at Middlesbrough Music Academy is special. The teachers are talented and passionate, and they really care about your progress.",
+  //   name: "Steve M.",
+  //   lessonType: "guitar"
+  // },
+  // {
+  //   quote: "The singing lessons helped me overcome my fear of performing in front of others. I feel much more confident on stage, and my vocal range has improved dramatically.",
+  //   name: "Sophie D.",
+  //   lessonType: "singing"
+  // },
+  // {
+  //   quote: "I’ve been learning bass for six months, and the progress I’ve made is beyond what I imagined. The lessons are always engaging, and the teacher makes complex techniques easy to understand.",
+  //   name: "Ethan J.",
+  //   lessonType: "bass"
+  // },
+  // {
+  //   quote: "The ukulele lessons are so much fun! I love how the lessons are structured and how we get to play new songs each week. I’m already playing along with my friends!",
+  //   name: "Nina K.",
+  //   lessonType: "ukulele"
+  // },
+  // {
+  //   quote: "After taking guitar lessons for a few months, I can play many of my favorite songs! The teacher takes the time to really explain each step, which has helped me build a strong foundation.",
+  //   name: "Oliver S.",
+  //   lessonType: "guitar"
+  // },
+  // {
+  //   quote: "The piano lessons at Middlesbrough Music Academy have really exceeded my expectations. I’ve gained so much musical knowledge, and I’m constantly amazed at my progress.",
+  //   name: "Isabella N.",
+  //   lessonType: "piano"
+  // }
 ]
 
 
@@ -308,7 +308,7 @@ export const team: {
     slug: 'drum-lesson',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-      { name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+      { name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
 
@@ -360,7 +360,7 @@ export const team: {
     teaches: 'guitar',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-      { name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+      { name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
     description:
@@ -413,7 +413,7 @@ export const team: {
     slug: 'piano-lesson',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
     description:
@@ -466,7 +466,7 @@ export const team: {
     slug: 'singing-lesson',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
     description:
@@ -519,7 +519,7 @@ export const team: {
     slug: 'bass-lesson',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
     description:
@@ -571,7 +571,7 @@ export const team: {
     slug: 'ukulele-lesson',
     version: { name: '1.0', date: 'June 5, 2021', datetime: '2021-06-05' },
     variants: [
-{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 40, price: '£20', description: "Enough room for a serious amount of snacks." }
+{ name: '20 minutes', length: 20, price: '£12.50', description: 'Perfect for a reasonable amount of snacks.'}, { name: '40 minutes', length: 45, price: '£23', description: "Enough room for a serious amount of snacks." }
     ],
     price: '$220',
     description:

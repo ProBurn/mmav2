@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { Typewriter } from 'react-simple-typewriter'
 const words = [
@@ -33,7 +34,7 @@ export default function Hero2() {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl flex flex-col h-screen">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             {/* <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
               Formerly Elliotts Music School
@@ -43,7 +44,16 @@ export default function Hero2() {
               </a>
             </div> */}
           </div>
-          <div className="text-center">
+          <div className="mx-auto flex flex-1 justify-center items-center">
+            <Image 
+              src="/content/logo-wide.png" 
+              alt="Logo of Middlesbrough Music Academy" 
+              className="h-16 w-auto sm:h-16" 
+              width={200} 
+              height={64} 
+            />
+          </div>
+          <div className="text-center flex-[2]">
             <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
               Thinking of learning {' '}
               </h1>

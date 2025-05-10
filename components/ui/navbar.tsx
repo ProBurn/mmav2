@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-
 import Link from 'next/link';
 import ConditionalLink from '@/components/conditionalLink';
 import { useNavbar } from '../UIContext';
+import AnimatedLink from '../AnimatedLink';
 // import { lessonPages } from '@/data/data';
 // import { useRouter } from "next/navigation";
 // import { Button } from '@/components/ui/moving-border';
@@ -133,26 +134,33 @@ const Navbar = () => {
         setMenuItem(null);
     }
 
-    const handleClickOutside = (e: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-            closeNavbar();
-        }
+    // const handleClickOutside = (e: MouseEvent) => {
+    //     if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+    //         closeNavbar();
+    //     }
 
-    }
+    // }
 
 
     const closeNavbar = () => {
         setIsOpen(false);
         setMenuItem(null);
-    }
+    };
+    
     const dropdownRef = React.useRef<HTMLDivElement>(null);
-
+    
+    const handleClickOutside = React.useCallback((event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+            closeNavbar();
+        }
+    }, [dropdownRef]);
+    
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [handleClickOutside]);
 
     // const router = useRouter();
 
@@ -470,9 +478,9 @@ const PricingContent: React.FC<{ dropdown?: { id: number; label: string; href: s
                 {/* <h3 className="font-semibold">Grooming</h3> */}
                 {dropdown?.map((item) => (
 
-                    <a href={item.href} key={`flyout ${item.id}`} className="block text-sm hover:underline">
+                    <AnimatedLink href={item.href} key={`flyout ${item.id}`} className="block text-sm font-normal">
                         {item.label}
-                    </a>
+                    </AnimatedLink>
                 ))}
                 {/* <a href="#" className="block text-sm hover:underline">
                     Nail Trimming

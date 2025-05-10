@@ -1,5 +1,6 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { JSX, SVGProps } from "react";
+import AnimatedLink from "../AnimatedLink";
 
 
 
@@ -136,9 +137,9 @@ const navigation = {
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.lessons.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                        <AnimatedLink href={item.href} className="text-sm/6 font-normal text-gray-600 hover:text-gray-900">
                           {item.name}
-                        </a>
+                        </AnimatedLink>
                       </li>
                     ))}
                   </ul>
@@ -150,9 +151,9 @@ const navigation = {
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.company.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                        <AnimatedLink href={item.href} className="text-sm/6 font-normal text-gray-600 hover:text-gray-900">
                           {item.name}
-                        </a>
+                        </AnimatedLink>
                       </li>
                     ))}
                   </ul>
@@ -162,9 +163,9 @@ const navigation = {
                   <ul role="list" className="mt-6 space-y-4">
                     {navigation.legal.map((item) => (
                       <li key={item.name}>
-                        <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                        <AnimatedLink href={item.href} className="text-sm/6 font-normal text-gray-600 hover:text-gray-900">
                           {item.name}
-                        </a>
+                        </AnimatedLink>
                       </li>
                     ))}
                   </ul>
@@ -176,7 +177,7 @@ const navigation = {
             <p className="text-sm/6 text-gray-600">&copy; {year} Middlesbrough Music Academy Ltd. All rights reserved.</p>
           </div>
           <div className="">
-            <p className="text-sm/6 text-gray-600">Site made by <Link className="font-bold" href="#">Tom Wheatley</Link></p>
+            <p className="text-sm/6 text-gray-600">Site made by <AnimatedLink className="font-bold" href="https://tomwheatley.dev/">Tom Wheatley</AnimatedLink></p>
           </div>
         </div>
       </footer>

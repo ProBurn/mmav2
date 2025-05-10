@@ -118,7 +118,7 @@ function TestimonialCard({
       ref={ref}
       style={{ opacity }}
       {...props}
-      className="relative flex aspect-[9/16] w-72 shrink-0 snap-start scroll-ml-[var(--scroll-padding)] flex-col justify-end overflow-hidden rounded-3xl sm:aspect-[3/4] sm:w-96"
+      className="relative flex aspect-[9/16] w-72 shrink-0 snap-start scroll-ml-[var(--scroll-padding)] flex-col justify-end overflow-hidden rounded-xl sm:aspect-[3/4] sm:w-96"
     >
       <img
         alt=""
@@ -127,7 +127,7 @@ function TestimonialCard({
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black from-[calc(7/16*100%)] ring-1 ring-inset ring-gray-950/10 sm:from-25%"
+        className="absolute inset-0 rounded-xl bg-gradient-to-t from-black from-[calc(7/16*100%)] ring-1 ring-inset ring-gray-950/10 sm:from-25%"
       />
       <figure className="relative p-10">
         <blockquote>
@@ -144,7 +144,8 @@ function TestimonialCard({
         <figcaption className="mt-6 border-t border-white/20 pt-6">
           <Heading as='h4' className="font-medium text-white text-3xl sm:text-3xl">{name}</Heading>
           <p className="text-sm/6 font-medium">
-            <span className="bg-gradient-to-r from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] bg-clip-text text-transparent">
+            {/* <span className="bg-gradient-to-r from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] bg-clip-text text-transparent"> */}
+            <span className="text-white">
               {/* <RippleText2 text={title} /> */}
               {/* {title} */}
               Learn more <span aria-hidden="true">→</span>

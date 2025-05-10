@@ -31,6 +31,8 @@ import { notFound } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import Modal from '@/components/ui/modal'
 import { useNavbar } from '@/components/UIContext'
+// import Link from 'next/link'
+import AnimatedLink from '@/components/AnimatedLink'
 // import { set } from 'zod'
 
 
@@ -93,23 +95,23 @@ import { useNavbar } from '@/components/UIContext'
 //         'For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.',
 //     content: `
 //     <h4>Overview</h4>
-    
+
 //     <p>For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.</p>
-    
+
 //     <ul role="list">
 //     <li>You\'re allowed to use the icons in unlimited projects.</li>
 //     <li>Attribution is not required to use the icons.</li>
 //     </ul>
-    
+
 //     <h4>What you can do with it</h4>
-    
+
 //     <ul role="list">
 //     <li>Use them freely in your personal and professional work.</li>
 //     <li>Make them your own. Change the colors to suit your project or brand.</li>
 //     </ul>
-    
+
 //     <h4>What you can\'t do with it</h4>
-    
+
 //     <ul role="list">
 //     <li>Don\'t be greedy. Selling or distributing these icons in their original or modified state is prohibited.</li>
 //     <li>Don\'t be evil. These icons cannot be used on websites or applications that promote illegal or immoral beliefs or activities.</li>
@@ -300,7 +302,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
     // const slug = 'drum-lesson'
 
     const product = lessonPages.find(product => product.slug === slug);
-   
+
 
 
     const teamMembers = product ? team.filter((member) => member.teaches?.includes(product.teaches)) : []
@@ -332,7 +334,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
 
             <main>
                 {/* Product */}
-                <Modal lesson={product.name} duration={selectedDuration?.name} openModalState={openModal} setOpenModalState={setOpenModal}/>
+                <Modal lesson={product.name} duration={selectedDuration?.name} openModalState={openModal} setOpenModalState={setOpenModal} />
                 <div className="bg-white">
                     <div className="mx-auto max-w-2xl px-4  pt-16 sm:px-6 sm:pb-32 sm:pt-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         {/* Product details */}
@@ -452,7 +454,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                                         value={variant}
                                                         aria-label={variant.name}
                                                         aria-description={variant.description}
-                                                        onClick={() => setSelectedRadio(index)} 
+                                                        onClick={() => setSelectedRadio(index)}
                                                         className={cn("group relative block cursor-pointer rounded-lg border border-gray-300 p-4 bg-white hover:bg-indigo-50",
                                                             selectedRadio === index ? "ring-2 ring-indigo-500 outline-none bg-indigo-50" : "ring-0")}
 
@@ -473,7 +475,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                         </fieldset>
                                     </div>
                                     <div className="mt-4">
-                                        <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">
+                                        <a href="#lessonLength" className="group inline-flex text-sm text-gray-500 hover:text-gray-700 scroll-smooth">
                                             <span>What lesson length do I need?</span>
                                             <QuestionMarkCircleIcon
                                                 aria-hidden="true"
@@ -485,14 +487,14 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                                         <button
                                             // type="submit"
                                             type="button"
-                                            onClick={()=>{setOpenModal(true)}}
+                                            onClick={() => { setOpenModal(true) }}
                                             className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                                         >
                                             Contact to book
                                         </button>
-                                        
 
-                                        
+
+
                                     </div>
                                     <div className="mt-6 text-center">
                                         <a href="#" className="group inline-flex text-base font-medium">
@@ -507,9 +509,40 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                             </section>
                         </div>
 
+                        <div className='col-span-2 flex flex-col lg:grid w-full lg:grid-cols-2'>
+                        <div className="order-2 lg:order-none mt-16 w-full lg:col-span-1 lg:col-start-1 lg:mt-5 lg:max-w-none" id="lessonLength">
+                        <div className="p-6 rounded-lg">
+                            <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+                                Not Sure Which Lesson Length You Need?
+                            </h3>
+                            <div className="mt-4">
+                                <h4 className="font-semibold text-gray-900">20-minute lessons are perfect for:</h4>
+                                <ul className="mt-2 list-disc list-outside pl-6 text-gray-700">
+                                    <li>Young beginners (ages 5–8) with shorter attention spans</li>
+                                    <li>Students looking for a short taster before committing</li>
+                                    <li>A quick, focused weekly session to reinforce key skills</li>
+                                </ul>
+                            </div>
+                            <div className="mt-6">
+                                <h4 className="font-semibold text-gray-900">45-minute lessons are ideal for:</h4>
+                                <ul className="mt-2 list-disc list-outside pl-6 text-gray-700">
+                                    <li>Students aged 9+ or adults</li>
+                                    <li>Intermediate or advanced players</li>
+                                    <li>Those preparing for exams, performances, or wanting more in-depth tuition</li>
+                                    <li>Anyone looking to progress faster with more personalised attention</li>
+                                </ul>
+                            </div>
+                            <div className="mt-6">
+                                <p className="text-gray-700">
+                                    <span className="font-semibold">Still unsure?</span> <AnimatedLink href="/contact"  >Contact us</AnimatedLink> — we&apos;re happy to help you choose the best fit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
                         {/* new part */}
-                        <div className="mx-auto mt-16 w-full max-w-2xl lg:col-span-1 lg:col-start-2 lg:mt-0 lg:max-w-none">
+                        
+                        <div className="order-1 lg:order-none mx-auto w-full max-w-2xl lg:col-span-1 lg:col-start-2 lg:mt-0 lg:max-w-none p-6">
                             <TabGroup>
                                 <div className="border-b border-gray-200">
                                     <TabList className="-mb-px flex space-x-8">
@@ -589,6 +622,14 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                             </TabGroup>
                         </div>
                     </div>
+
+
+                    
+
+
+
+
+
                 </div>
 
 
@@ -686,6 +727,7 @@ export default function Example({ params: paramsPromise }: { params: Promise<{ s
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
 
 
